@@ -5,6 +5,13 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+/**
+ * @property mixed $proposed_budget
+ * @property \Carbon\Carbon $created_at
+ * @property int $id
+ * @property \Carbon\Carbon $updated_at
+ * @property mixed $transaction
+ */
 class User extends Authenticatable
 {
     use Notifiable;
@@ -26,4 +33,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function proposedBudget(){
+        return $this->hasMany('App/ProposedBudget', 'proposing_user', 'username');
+    }
+
+    public function transaction(){
+        return $this->hasMany('App/Transaction', 'owner', 'username');
+    }
 }
