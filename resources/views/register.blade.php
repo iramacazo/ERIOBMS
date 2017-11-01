@@ -5,7 +5,7 @@
 	</head>
 	<body>
 		Register
-		<form action="" method="POST"> <!-- Insert Action -->
+		<form action="{{ url('registerUser') }}" method="POST"> <!-- Insert Action -->
 			<input type="text" name="firstname" placeholder="First Name">
 			<input type="text" name="lastname" placeholder="Last Name">
 			<input type="text" name="username" placeholder="Username">
