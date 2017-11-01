@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
-use app\User;
 use DB;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -18,31 +19,25 @@ class UserController extends Controller
             'lastname' => 'required'
     		]);
 
-    	//generate salt
-    	$salts = DB::table('users')->pluck('salt');
-    	$hasSame = false;
-    	do{
-    		$alat = $this->generateSalt();
-    		foreach($salts as $salt){
-    			if($salt == $alat)
-    				$hasSame = true;
-                else
-                    $hasSame = false;
-    		}
-    	}while($hasSame);
-
     	//hash password
-    	$password = hash('sha256', $request->password . $alat);
+    	$password = Hash::make($request->password, [
+            'rounds' => 12
+        ]);
 
     	$user = new User;
+    	$user->email = "bading@gmail.com";
     	$user->username = $request->username;
     	$user->password = $password;
-    	$user->usertype = $request->usertype;
-    	$user->firstname = $user->firstname;
-    	$user->lastname = $user->lastname;
-    	$user->salt = $alat;
+    	$user->firstname = $request->firstname;
+        $user->lastname = $request->lastname;
 
     	$user->save();
+
+        if(!$user->save()){
+            App::abort(500, 'Error');
+        }
+
+
 
     	return redirect()->route('login');
     }
