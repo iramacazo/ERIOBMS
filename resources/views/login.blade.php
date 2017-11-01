@@ -29,8 +29,8 @@
         </nav>
         <div class="container" id="main-body">
             <div class="row">
-                <span class="col-md-2"></span>
-                <div id="login-block" class="col-md-8 align-middle">
+                <span class="col-md-3"></span>
+                <div id="login-block" class="col-md-6 align-middle">
                     <form action="" method="POST" class="form-group"> <!-- Insert Action -->
                         <label for="username">Username</label>
                         <input class="form-control" type="text" name="username" placeholder="Username">
@@ -43,7 +43,7 @@
                     <br>
                     <p id="register-link">New Employee? <a href="{{ url('register') }}">Register here!</a></p>
                 </div>
-                <span class="col-md-2"></span>
+                <span class="col-md-3"></span>
             </div>
         </div>
 	</body>
