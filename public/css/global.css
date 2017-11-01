@@ -1,0 +1,26 @@
+h1{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #ffffff;
+}
+
+body{
+    background: #ebebeb;
+}
+
+#main-body{
+    top: 100px;
+}
+
+.navbar{
+    background: white;
+    border-bottom: 2px solid #919792;
+    height: 100px;
+    -webkit-box-shadow:0 1px 10px rgba(102, 114, 115, 0.53);
+    -moz-box-shadow:0 1px 10px rgba(102, 114, 115, 0.53);
+    box-shadow:0 1px 10px rgba(102, 114, 115, 0.53);
+    padding-left: 15%;
+}
+
+.nav-icon{
+    height: 75px;
+}

@@ -1,0 +1,26 @@
+#login-block{
+    background: rgba(0, 0, 0, 0.93);
+    opacity: 0.9;
+    border-radius: 10px;
+    padding: 30px 30px 30px 30px;
+    margin-top: 30%;
+}
+
+label{
+    color: white;
+    font-size: 1.2em;
+    margin-left: 10px;
+    margin-bottom: 4px;
+}
+
+#register-link{
+    color: white;
+}
+
+#login-button{
+    margin-left: 15%;
+    width: 70%;
+    margin-top: 15px;
+    background-color: #004422;
+    color: white;
+}
