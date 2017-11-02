@@ -1,22 +1,37 @@
+
+#main-body{
+    display: table;
+}
+
 #form-block{
-    background: rgba(0, 0, 0, 0.93);
     opacity: 0.9;
+    margin-top: -50px;
+    margin-left: auto;
+    margin-right: auto;
     border-radius: 10px;
-    padding: 30px 50px 10px 50px;
-    margin-top: 30%;
+    padding: 30px 50px 20px 50px;
+    background: rgba(0, 0, 0, 0.93);
 }
 
 label{
     color: white;
-    font-size: 1.2em;
-    margin-left: 10px;
-    margin-bottom: 4px;
+    font-size: 17px;
+    margin-bottom: 1px;
 }
 
 #register-button{
-    margin-left: 15%;
-    width: 70%;
-    margin-top: 15px;
-    background-color: #004422;
+    width: 100px;
     color: white;
+    margin-top: 25px;
+    background-color: #004422;
+}
+
+#register-button:hover{
+    cursor: pointer;
+}
+
+#register-reminder{
+    font-size: 15px;
+    margin-top: -33px;
+    margin-left: 120px;
 }
