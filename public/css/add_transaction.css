@@ -1,0 +1,21 @@
+#transaction_form_box{
+    opacity: .9;
+    min-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    padding: 30px 50px 30px 50px;
+    background: rgba(0, 0, 0, 0.93);
+}
+
+label, h2, legend{
+    color: white;
+}
+
+textarea{
+    resize: none;
+}
+
+.btn{
+    cursor: pointer;
+}

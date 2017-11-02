@@ -2,24 +2,30 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\ProposedBudget;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Validator;
 
 class ProposedBudgetController extends Controller
 {
     //returns the view of the form 
     public function proposeForm(){
+        if(Auth::user() == null) {
+            return redirect('/login');
+        }
     	return view('proposeBudget');
     }
 
+
+
     public function proposeBudget(Request $request){
-    	$this->validate($request, [
-    		'academicyear' => 'required',
-    		'supplies' => 'required', 
-    		'transportation' => 'required',
-    		'mailing' => 'required',
-    		'meeting_expenses' => 'required',
+        $validator = \Illuminate\Support\Facades\Validator::make($request->all(),[
+            'academicyear' => 'required',
+            'supplies' => 'required',
+            'transportation' => 'required',
+            'mailing' => 'required',
+            'meeting_expenses' => 'required',
             'workshop' => 'required',
             'mimeo' => 'required',
             'telephone' => 'required',
@@ -36,9 +42,15 @@ class ProposedBudgetController extends Controller
             'commitments_student' => 'required',
             'activities' => 'required',
             'capex' => 'required',
-    		]);
+        ]);
 
-    	$proposed = new ProposedBudget;
+        if ($validator->fails()) {
+            return redirect('/propose_budget')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+    	$proposed = new ProposedBudget();
     	$proposed->academic_year = $request->academicyear;
     	$proposed->supplies = $request->supplies;
     	$proposed->transportation = $request->transportation;
@@ -61,9 +73,7 @@ class ProposedBudgetController extends Controller
     	$proposed->activities = $request->activities;
     	$proposed->capex = $request->capex;
     	$proposed->proposing_user = Auth::user()->username;
-    	$proposed->approval_status = false;
     	$proposed->save();
-
-    	return redirect()->route('home');
+    	return view('home');
     }
 }

@@ -11,13 +11,23 @@
     <script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
 
+    <script src="{{asset('js/canvasjs.min.js')}}"></script>
+
     <!-- Global CSS for Background Colours and fonts and stuff -->
     <link rel="stylesheet" href="{{asset('css/global.css')}}">
 
-
+    <link rel="stylesheet" href="{{asset('css/home.css')}}">
     <!-- Follow the format of CSS and JS files so that the specifics can override the generals -->
+
+    <!-- The Actual Chart -->
+    @if($budgetdata != null)
+        <script>var budgetdata = @json($budgetdata);</script>
+    @endif
+    <script src="{{asset('js/yearlybudgetpie.js')}}"></script>
 </head>
 <body>
+
+
 
 <!-- RIBBON BAR -->
 <nav class="navbar navbar-fixed-top navbar-toggleable-md">
@@ -27,7 +37,7 @@
         </a>
     </div>
     <div class="collapse navbar-collapse">
-        <ul class="navbar-nav ml-auto mr-3">
+        <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"
                    aria-haspopup="true">
@@ -53,28 +63,100 @@
 <!-- BODY -->
 <div class="container" id="main-body">
     <div class="row">
-        <span class="col-md-3"></span>
+        <span class="col-md-1"></span>
+        <div class="col-md-10">
+            <div class="card" id="overview">
+                <div class="card-header">
+                    <h1>Overview</h1>
+                </div>
+                <div class="card-block">
+                    <div class="row" id="yearly_budget_area">
+                        <div class="col-md-12 text-center">
+                            @if(\App\ProposedBudget::all()->count() == 0 )
+                                <h3>There is no approved budget!</h3>
+                                <a href="{{route('goto_propose_budget')}}" role="button" id="propose_budget_button"
+                                   class="btn btn-primary">Add Budget</a>
 
-        <div class="panel panel-default">
-            <div class="panel-heading">Dashboard</div>
-
-            <div class="panel-body">
-                @if (session('status'))
-                    <div class="alert alert-success">
-                        {{ session('status') }}
+                            @else
+                                <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+                                <a href="{{route('goto_propose_budget')}}" role="button" id="propose_budget_button"
+                                   class="btn btn-primary float-right">Add Budget</a>
+                            @endif
+                        </div>
                     </div>
-                @endif
+                    <div class="row">
+                        <div class="col-md-6" id="transaction_area">
+                            @if(\App\Transaction::all()->count() == 0)
+                                <div class="text-center">
+                                    <br>
+                                    <h4>There are currently no transactions</h4>
+                                    <a href="{{route('goto_add_transaction')}}" role="button" class="btn btn-primary
+                                            @if(\App\ProposedBudget::all()->count() == 0)
+                                                disabled
+                                            @endif"
+                                       id="add_transaction_button">Add Transaction</a>
+                                    <br><br>
+                                    @if(\App\ProposedBudget::all()->count() == 0)
+                                        <small><i>You can't add a transaction without an approved budget</i></small>
+                                    @endif
+                                </div>
+                            @else
+                                <h3>Latest Transactions</h3>
+                                <div class="list-group">
+                                @foreach(\App\Transaction::all()->sortByDesc('transaction_date')->take(5)
+                                                as $something)
+                                    <div class="list-group-item flex-column align-items-start">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <strong>{{$something->item_name}}</strong>
+                                            <small>{{$something->transaction_date}}</small>
+                                        </div>
+                                        <p class="mb-1">{{$something->description}}</p>
+                                        <p class="mb-1">P{{number_format($something->amount, 2)}}</p>
+                                    </div>
+                                @endforeach
+                                </div>
+                                <a href="{{route('goto_add_transaction')}}" role="button"
+                                   class="float-right btn btn-primary" id="add_transaction_button">Add Transaction</a>
+                            @endif
+                        </div>
+                        <div class="col-md-6 text-center" id="category">
+                            <div class="dropdown float-right">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="dd-menu-button"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Categories
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dd-menu-button">
+                                    <a class="dropdown-item" href="#">Activities</a>
+                                    <a class="dropdown-item" href="#">Capex</a>
+                                    <a class="dropdown-item" href="#">Commitments - Official</a>
+                                    <a class="dropdown-item" href="#">Commitments - Students</a>
+                                    <a class="dropdown-item" href="#">International Travel</a>
+                                    <a class="dropdown-item" href="#">Internationalization Programs</a>
+                                    <a class="dropdown-item" href="#">Mailing</a>
+                                    <a class="dropdown-item" href="#">Meeting Expenses</a>
+                                    <a class="dropdown-item" href="#">Membership</a>
+                                    <a class="dropdown-item" href="#">Mimeo</a>
+                                    <a class="dropdown-item" href="#">Orientation Programs</a>
+                                    <a class="dropdown-item" href="#">Publication</a>
+                                    <a class="dropdown-item" href="#">Repairs and Maintenance</a>
+                                    <a class="dropdown-item" href="#">Representation</a>
+                                    <a class="dropdown-item" href="#">Supplies</a>
+                                    <a class="dropdown-item" href="#">Telephone</a>
+                                    <a class="dropdown-item" href="#">Transportation</a>
+                                    <a class="dropdown-item" href="#">Tokens</a>
+                                    <a class="dropdown-item" href="#">Uniform</a>
+                                    <a class="dropdown-item" href="#">Workshops</a>
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                            <h4>Select a category to see specific expenses</h4>
+                        </div>
+                    </div>
+                </div>
 
-                You are logged in!
-                <br>
-                <a href="{{ url('/propose_budget') }}"> Propose Budget </a> <!-- revise niyo nalang UI temp lang to-->
-                <br>
-                <a href="{{ url('/add_transaction') }}"> Add Transaction </a> <!-- same -->
             </div>
         </div>
-
-
-        <span class="col-md-3"></span>
     </div>
 </div>
 

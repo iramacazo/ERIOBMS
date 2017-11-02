@@ -8,7 +8,7 @@ body{
 }
 
 #main-body{
-    top: 100px;
+    top: 75px;
 }
 
 .navbar{
@@ -30,4 +30,19 @@ body{
     -moz-user-select: none;
     -webkit-user-drag: none;
     -webkit-user-select: none;
+}
+
+.btn-primary{
+    background-color: #00703C;
+    border: #003319;
+}
+
+.btn-primary:hover{
+    background-color: #007c42;
+    border: #00703C;
+}
+
+.btn-primary.disabled{
+    background-color: #007d3e;
+    border: #00692f;
 }

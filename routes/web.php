@@ -21,12 +21,12 @@ Route::get('/register', function () {
 
 Route::post('/registerUser', 'UserController@register')->name('registerUser');
 
-Route::get('/propose_budget', 'ProposedBudgetController@proposeForm'); //returns view
+Route::get('/propose_budget', 'ProposedBudgetController@proposeForm')->name('goto_propose_budget'); //returns view
 
 Route::post('/save_proposed_budget', 'ProposedBudgetController@proposeBudget')->name('proposeBudget');
 
 //transaction routes
-Route::get('/add_transaction', 'TransactionController@addTransaction');
+Route::get('/add_transaction', 'TransactionController@addTransaction')->name('goto_add_transaction');
 
 Route::post('/save_transaction', [
     'as' => 'submitTransaction',

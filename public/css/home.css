@@ -1,0 +1,25 @@
+#overview{
+    margin-top: -25px;
+}
+
+h1{
+    color: #1d1e1f;
+}
+
+#propose_budget_button, #add_transaction_button{
+    margin-top: 15px;
+}
+
+.row{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+#yearly_budget_area{
+    padding-bottom: 15px;
+    border-bottom: solid 1px #dcdcdc;
+}
+
+#transaction_area{
+    border-right: solid 1px #dcdcdc;
+}

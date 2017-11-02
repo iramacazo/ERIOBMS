@@ -16,6 +16,7 @@ label{
 
 #login-button{
     width: 100px;
+    cursor: pointer;
     color: white;
     margin-top: 25px;
     background-color: #004422;
