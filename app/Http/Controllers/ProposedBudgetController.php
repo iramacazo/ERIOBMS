@@ -61,6 +61,7 @@ class ProposedBudgetController extends Controller
     	$proposed->activities = $request->activities;
     	$proposed->capex = $request->capex;
     	$proposed->proposing_user = Auth::user()->username;
+    	$proposed->approval_status = false;
     	$proposed->save();
 
     	return redirect()->route('home');

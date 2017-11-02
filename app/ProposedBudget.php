@@ -14,7 +14,7 @@ use Illuminate\Database\Eloquent\Model;
 class ProposedBudget extends Model
 {
     protected $fillable = [
-        'proposing_user', 'academic_year', 'supplies', 'transportation',
+        'proposing_user', 'approval_status', 'academic_year', 'supplies', 'transportation',
         'mailing', 'meeting_expenses', 'workshop', 'mimeo', 'telephone', 'repairs_and_maintenance', 'publication',
         'uniform', 'international_travel', 'representation', 'tokens', 'commitments_official', 'membership',
         'internationalization_programs', 'activities', 'capex', 'orientation_programs', 'commitments_student',
