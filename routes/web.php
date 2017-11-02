@@ -28,6 +28,13 @@ Route::post('/save_proposed_budget', 'ProposedBudgetController@proposeBudget')->
 //transaction routes
 Route::get('/add_transaction', 'TransactionController@addTransaction');
 
+Route::post('/save_transaction', [
+    'as' => 'submitTransaction',
+    'uses' => 'TransactionController@submitTransaction'
+]);
+
+//
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

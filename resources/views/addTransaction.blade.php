@@ -3,8 +3,10 @@
 @section('content')
 <div>
 Add Transaction
-    <form action="addTransactionConfirm" method="POST" id="transaction_form">
-        {{ csrf_field() }}
+    <?php $url= route('submitTransaction'); ?>
+    <form action="{{ $url }}" method="POST" id="transaction_form">
+        <h4>Owner:</h4>
+        <input type="text" name="owner">
         <h4>Category:</h4>
         <select name="category" id="category" form="transaction_form">
             <option value="supplies">Supplies and Stationary</option>
@@ -42,6 +44,7 @@ Add Transaction
         <input type="radio" name="petty" value="no"> No
         <br>
         <input type="submit" name="submit">
+        {{ csrf_field() }}
     </form>
 
 
