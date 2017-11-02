@@ -25,6 +25,9 @@ Route::get('/propose_budget', 'ProposedBudgetController@proposeForm'); //returns
 
 Route::post('/save_proposed_budget', 'ProposedBudgetController@proposeBudget')->name('proposeBudget');
 
+//transaction routes
+Route::get('/add_transaction', 'TransactionController@addTransaction');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
