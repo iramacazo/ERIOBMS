@@ -21,6 +21,10 @@ Route::get('/register', function () {
 
 Route::post('/registerUser', 'UserController@register')->name('registerUser');
 
+Route::get('/propose_budget', 'ProposedBudgetController@proposeForm'); //returns view
+
+Route::post('/save_proposed_budget', 'ProposedBudgetController@proposeBudget')->name('proposeBudget');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

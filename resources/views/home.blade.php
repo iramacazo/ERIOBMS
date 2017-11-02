@@ -15,6 +15,8 @@
                     @endif
 
                     You are logged in!
+                    <br>
+                    <a href="{{ url('/propose_budget') }}"> Propose Budget </a> <!-- revise niyo nalang UI temp lang to-->
                 </div>
             </div>
         </div>
