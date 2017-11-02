@@ -17,6 +17,8 @@
                     You are logged in!
                     <br>
                     <a href="{{ url('/propose_budget') }}"> Propose Budget </a> <!-- revise niyo nalang UI temp lang to-->
+                        <br>
+                    <a href="{{ url('/add_transaction') }}"> Add Transaction </a> <!-- same -->
                 </div>
             </div>
         </div>
