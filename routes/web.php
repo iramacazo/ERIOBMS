@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/login', function () {
     return view('auth/login');
 })->name('login');
 
@@ -37,4 +37,4 @@ Route::post('/save_transaction', [
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
