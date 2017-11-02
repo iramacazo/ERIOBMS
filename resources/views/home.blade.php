@@ -21,9 +21,15 @@
 
     <!-- The Actual Chart -->
     @if($budgetdata != null)
-        <script>var budgetdata = @json($budgetdata);</script>
+        <script>
+            var budgetdata = @json($budgetdata);
+            var termdata = @json($amounts);
+            var categorybudget = @json($categorybudget);
+        </script>
+
     @endif
-    <script src="{{asset('js/yearlybudgetpie.js')}}"></script>
+    <script src="{{asset('js/yearlybudgetpie.js')}}"></script>{{--
+    <script src="{{asset('js/specificbudget.js')}}"></script>--}}
 </head>
 <body>
 
@@ -125,32 +131,53 @@
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Categories
                                 </button>
-                                <div class="dropdown-menu" aria-labelledby="dd-menu-button">
-                                    <a class="dropdown-item" href="#">Activities</a>
-                                    <a class="dropdown-item" href="#">Capex</a>
-                                    <a class="dropdown-item" href="#">Commitments - Official</a>
-                                    <a class="dropdown-item" href="#">Commitments - Students</a>
-                                    <a class="dropdown-item" href="#">International Travel</a>
-                                    <a class="dropdown-item" href="#">Internationalization Programs</a>
-                                    <a class="dropdown-item" href="#">Mailing</a>
-                                    <a class="dropdown-item" href="#">Meeting Expenses</a>
-                                    <a class="dropdown-item" href="#">Membership</a>
-                                    <a class="dropdown-item" href="#">Mimeo</a>
-                                    <a class="dropdown-item" href="#">Orientation Programs</a>
-                                    <a class="dropdown-item" href="#">Publication</a>
-                                    <a class="dropdown-item" href="#">Repairs and Maintenance</a>
-                                    <a class="dropdown-item" href="#">Representation</a>
-                                    <a class="dropdown-item" href="#">Supplies</a>
-                                    <a class="dropdown-item" href="#">Telephone</a>
-                                    <a class="dropdown-item" href="#">Transportation</a>
-                                    <a class="dropdown-item" href="#">Tokens</a>
-                                    <a class="dropdown-item" href="#">Uniform</a>
-                                    <a class="dropdown-item" href="#">Workshops</a>
+                                <div class="dropdown-menu" aria-label="gay" id="dropdowncategory">
+                                    <a class="dropdown-item category" name="activities">
+                                        Activities/Projects - ABB </a>
+                                    <a class="dropdown-item category" name="workshop">
+                                        Annual Workshops/Teambuilding</a>
+                                    <a class="dropdown-item category" name="capex">
+                                        Capex</a>
+                                    <a class="dropdown-item category" name="commitments_official">
+                                        Commitments - Official</a>
+                                    <a class="dropdown-item category" name="commitments_student">
+                                        Commitments - Students</a>
+                                    <a class="dropdown-item category" name="membership">
+                                        International and Local Membership and Hostings</a>
+                                    <a class="dropdown-item category" name="tokens">
+                                        Institutional Tokens</a>
+                                    <a class="dropdown-item category" name="international_travel">
+                                        International Travel</a>
+                                    <a class="dropdown-item category" name="internationalization_programs">
+                                        Internationalization Programs</a>
+                                    <a class="dropdown-item category" name="mailing">
+                                        Mailing</a>
+                                    <a class="dropdown-item category" name="meeting_expenses">
+                                        Meeting Expenses</a>
+                                    <a class="dropdown-item category" name="mimeo">
+                                        Mimeo and Reproduction</a>
+                                    <a class="dropdown-item category" name="orientation_programs">
+                                        Orientation Programs</a>
+                                    <a class="dropdown-item category" name="publication">
+                                        Publication</a>
+                                    <a class="dropdown-item category" name="repairs_and_maintenance">
+                                        Repairs and Maintenance</a>
+                                    <a class="dropdown-item category" name="representation">
+                                        Representation</a>
+                                    <a class="dropdown-item category" name="supplies">
+                                        Supplies</a>
+                                    <a class="dropdown-item category" name="telephone">
+                                        Telephone</a>
+                                    <a class="dropdown-item category" name="transportation">
+                                        Transportation</a>
+                                    <a class="dropdown-item category" name="uniform">
+                                        Uniform</a>
                                 </div>
                             </div>
                             <br>
                             <br>
-                            <h4>Select a category to see specific expenses</h4>
+                            <div id="chartContainer2" style="height: 300px; width: 100%; display: none"></div>
+                            <h4 id="categorySplash">Select a category to see specific expenses</h4>
                         </div>
                     </div>
                 </div>

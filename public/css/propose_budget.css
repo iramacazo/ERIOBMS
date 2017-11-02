@@ -8,7 +8,7 @@
     background: rgba(0, 0, 0, 0.93);
 }
 
-label, h2{
+label, h2, h4{
     color: white;
 }
 
@@ -20,4 +20,8 @@ label, h2{
     cursor: pointer;
     padding-right: 45px;
     padding-left: 45px;
+}
+
+#ay{
+    margin-left: 25px;
 }

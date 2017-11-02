@@ -22,6 +22,7 @@ class TransactionController extends Controller
             'amount' => 'required',
             'item_name' => 'required',
             'petty' => 'required',
+            'term' => 'required',
         ]);
 
         if ($validator->fails()) {
@@ -36,6 +37,7 @@ class TransactionController extends Controller
         $transaction->transaction_date = $request->transaction_date;
         $transaction->amount = $request->amount;
         $transaction->item_name = $request->item_name;
+        $transaction->term = $request->term;
         if(!empty($request->item_desc))
             $transaction->description = $request->item_desc;
         else

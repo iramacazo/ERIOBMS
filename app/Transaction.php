@@ -19,7 +19,7 @@ class Transaction extends Model
     // TODO Confirm where they get the whole of 30%
     protected $fillable = [
         'owner', 'budget_id', 'category', 'transaction_date', 'amount','item_name', 'description',
-        'form_id', 'paid_in_petty_cash',
+        'form_id', 'paid_in_petty_cash', 'term',
     ];
 
     public function user(){

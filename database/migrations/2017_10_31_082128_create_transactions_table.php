@@ -22,6 +22,7 @@ class CreateTransactionsTable extends Migration
             $table->decimal('amount', 9, 2);
             $table->string('item_name');
             $table->string('description');
+            $table->integer('term');
             $table->boolean('paid_in_petty_cash');
             $table->string('prs_id')->nullable($value = true);
             $table->foreign('budget_id')->references('id')->on('proposed_budgets');

@@ -23,3 +23,11 @@ h1{
 #transaction_area{
     border-right: solid 1px #dcdcdc;
 }
+
+.dropdown-item{
+    cursor: pointer;
+}
+
+.dropdown-item:active{
+    background-color: #d4d4d4;
+}

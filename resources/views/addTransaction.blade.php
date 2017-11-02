@@ -67,30 +67,41 @@
         <div class="col-md-8" id="transaction_form_box">
             <h1>Add Transaction</h1>
             <form class="form" action="{{ route('submitTransaction') }}" method="POST" id="transaction_form">
-                <h2>Owner: {{ \Illuminate\Support\Facades\Auth::user()->username }}</h2>
+                <h3>Owner: {{ \Illuminate\Support\Facades\Auth::user()->username }}</h3>
+                <small>A.Y. {{\App\ProposedBudget::all()->first()->academic_year}} - {{\App\ProposedBudget::all()->first()
+                                                        ->academic_year + 1}}</small>
                 <div class="row">
                     <div class="col-md-6">
+                        <div class="form-group{{$errors->has('term') ? 'has-danger':''}}">
+                            <label for="term">Term</label>
+                            <select class="form-control" name="term">
+                                <option value="1">1st</option>
+                                <option value="2">2nd</option>
+                                <option value="3">3rd</option>
+                            </select>
+                        </div>
+
                         <div class="form-group{{$errors->has('category') ? ' has-danger' : ''}}">
                             <label for="category">Category</label>
                             <select class="form-control" name="category" id="category">
                                 <option value="supplies">Supplies and Stationary</option>
                                 <option value="transportation">Transportation</option>
                                 <option value="mailing">Mailing</option>
-                                <option value="meeting">Meeting Expenses</option>
+                                <option value="meeting_expenses">Meeting Expenses</option>
                                 <option value="workshop">Workshops and Teambuilding</option>
                                 <option value="mimeo"> Mimeo and Reproduction</option>
                                 <option value="telephone">Telephone</option>
-                                <option value="repairs">Repairs and Maintenance</option>
+                                <option value="repairs_and_maintenance">Repairs and Maintenance</option>
                                 <option value="publication">Publication</option>
                                 <option value="uniform">Uniform</option>
-                                <option value="internationtravel">International Travel</option>
+                                <option value="international_travel">International Travel</option>
                                 <option value="representation">Representation</option>
                                 <option value="tokens">Internation Tokens</option>
-                                <option value="commitmentsstudent">Commitments (Student)</option>
-                                <option value="commitmentsofficial">Commitments (Official)</option>
+                                <option value="commitments_student">Commitments (Student)</option>
+                                <option value="commitments_official">Commitments (Official)</option>
                                 <option value="membership">Membership</option>
-                                <option value="orientationprograms">Orientation Programs</option>
-                                <option value="internationalizationprograms">Internationalization Programs</option>
+                                <option value="orientation_programs">Orientation Programs</option>
+                                <option value="internationalization_programs">Internationalization Programs</option>
                                 <option value="activities">Activities</option>
                                 <option value="capex">CAPEX</option>
                             </select>

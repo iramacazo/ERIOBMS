@@ -61,24 +61,15 @@
 			<form action="{{ route('proposeBudget') }}" method='POST' class="form">
                 <!-- Academic Year -->
                 <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-group{{ $errors->has('academicyear') ? ' has-danger' : '' }}">
-                            <label for="academicyear">Academic Year</label>
-                            <select class="form-control" name="academicyear">
-                                <option>A.Y. 2017-2018</option>
-                                <option>A.Y. 2018-2019</option>
-                                <option>A.Y. 2019-2020</option>
-                                <option>A.Y. 2020-2021</option>
-                                <option>A.Y. 2021-2022</option>
-                                <option>A.Y. 2022-2023</option>
-                            </select>
-                            @if ($errors->has('academicyear'))
-                                <div class="form-control-feedback">{{ $errors->first('academicyear') }}</div>
-                            @endif
-                        </div>
+                    <div class="col-md-6" id="ay">
+                        <h4><i>Academic Year: {{$year}} - {{$year + 1}}</i></h4>
+                        @if(\App\ProposedBudget::all()->count() != 0)
+                            <small style="color: #b4a54f"><i>Warning: Adding a new budget will prevent you from adding
+                                any more transactions to previous budgets</i></small>
+                        @endif
                     </div>
                 </div>
-
+                <br>
                 <div class="row">
                     <div class="col-md-6 costs">
                         <h2>Operating Expenses</h2>

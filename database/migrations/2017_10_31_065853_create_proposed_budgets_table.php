@@ -16,7 +16,7 @@ class CreateProposedBudgetsTable extends Migration
         Schema::create('proposed_budgets', function (Blueprint $table) {
             $table->increments('id');
             $table->string('proposing_user');
-            $table->string('academic_year');
+            $table->integer('academic_year');
             $table->decimal('supplies',9,2);
             $table->decimal('transportation',9,2);
             $table->decimal('mailing',9,2);

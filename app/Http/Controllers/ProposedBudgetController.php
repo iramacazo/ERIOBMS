@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\ProposedBudget;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Validator;
@@ -14,14 +15,20 @@ class ProposedBudgetController extends Controller
         if(Auth::user() == null) {
             return redirect('/login');
         }
-    	return view('proposeBudget');
+
+        if(ProposedBudget::all()->count() == 0)
+            $year = Carbon::now()->year + 0;
+        else{
+            $year = ProposedBudget::all()->sortByDesc('academic_year')->first()
+                    ->academic_year + 1;
+        }
+    	return view('proposeBudget', ['year' => $year]);
     }
 
 
 
     public function proposeBudget(Request $request){
         $validator = \Illuminate\Support\Facades\Validator::make($request->all(),[
-            'academicyear' => 'required',
             'supplies' => 'required',
             'transportation' => 'required',
             'mailing' => 'required',
@@ -51,7 +58,12 @@ class ProposedBudgetController extends Controller
         }
 
     	$proposed = new ProposedBudget();
-    	$proposed->academic_year = $request->academicyear;
+        if(ProposedBudget::all()->count() == 0)
+            $proposed->academic_year = Carbon::now()->year + 0;
+        else{
+            $proposed->academic_year = ProposedBudget::all()->sortByDesc('academic_year')->first()
+                                            ->academic_year + 1;
+        }
     	$proposed->supplies = $request->supplies;
     	$proposed->transportation = $request->transportation;
     	$proposed->mailing = $request->mailing;
@@ -74,6 +86,6 @@ class ProposedBudgetController extends Controller
     	$proposed->capex = $request->capex;
     	$proposed->proposing_user = Auth::user()->username;
     	$proposed->save();
-    	return view('home');
+    	return redirect(route('home'));
     }
 }

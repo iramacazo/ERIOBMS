@@ -8,7 +8,7 @@
     background: rgba(0, 0, 0, 0.93);
 }
 
-label, h2, legend{
+label, h2, legend, h3, small{
     color: white;
 }
 
