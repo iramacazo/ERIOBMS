@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Transaction;
-<<<<<<< HEAD
 use App\ProposedBudget;
 use DB;
 
@@ -175,10 +174,8 @@ class ReportController extends Controller
     	]);
 
     	return view('budgetVarianceReport', ['data' => $data]);
-=======
+    }
 
-class ReportController extends Controller
-{
     //todo finish this
     public function viewAllTransactions(){ //all transactions from the beginning of time grouped by category
         $supplies = Transaction::where('category', 'supplies')
@@ -291,6 +288,5 @@ class ReportController extends Controller
 
     public function inputDateRange(){
         return view("reports/input_date_range");
->>>>>>> 551ad41b3460137587faa98edada17583d51b219
     }
 }
