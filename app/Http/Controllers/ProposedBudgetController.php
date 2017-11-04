@@ -64,6 +64,7 @@ class ProposedBudgetController extends Controller
             $proposed->academic_year = ProposedBudget::all()->sortByDesc('academic_year')->first()
                                             ->academic_year + 1;
         }
+
     	$proposed->supplies = $request->supplies;
     	$proposed->transportation = $request->transportation;
     	$proposed->mailing = $request->mailing;
@@ -86,6 +87,7 @@ class ProposedBudgetController extends Controller
     	$proposed->capex = $request->capex;
     	$proposed->proposing_user = Auth::user()->username;
     	$proposed->save();
+    	
     	return redirect(route('home'));
     }
 }

@@ -187,5 +187,7 @@
     </div>
 </div>
 
+<a href="{{ route('budget_variance') }}"> Generate Budget Variance Report </a> 
+
 </body>
 </html>

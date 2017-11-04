@@ -38,3 +38,8 @@ Route::post('/save_transaction', [
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
+
+//Budget Variance Routes
+Route::get('/budget_variance', 'ReportController@getAllTerms')->name('budget_variance');
+
+Route::post('/budget_variance_result', 'ReportController@generateBudgetVariance')->name('budget_variance_result');
