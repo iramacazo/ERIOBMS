@@ -186,6 +186,9 @@
         </div>
     </div>
 </div>
-
+<div>
+    <a href="{{route('view.all.transactions')}}">View All Transactions</a> <!-- todo itsura/naming --> <br>
+    <a href="{{route('input.transaction.range')}}">View Transactions Date Range</a>
+</div>
 </body>
 </html>
