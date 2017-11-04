@@ -186,8 +186,15 @@
         </div>
     </div>
 </div>
+<<<<<<< HEAD
 
 <a href="{{ route('budget_variance') }}"> Generate Budget Variance Report </a> 
 
+=======
+<div>
+    <a href="{{route('view.all.transactions')}}">View All Transactions</a> <!-- todo itsura/naming --> <br>
+    <a href="{{route('input.transaction.range')}}">View Transactions Date Range</a>
+</div>
+>>>>>>> 551ad41b3460137587faa98edada17583d51b219
 </body>
 </html>

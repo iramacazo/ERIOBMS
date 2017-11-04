@@ -33,6 +33,21 @@ Route::post('/save_transaction', [
     'uses' => 'TransactionController@submitTransaction'
 ]);
 
+//report routes
+Route::get('/view_transactions/all', [
+   'as' => 'view.all.transactions',
+   'uses' => 'ReportController@viewAllTransactions'
+]);
+
+Route::get('view_transactions/input_range',[
+   'as' => 'input.transaction.range',
+   'uses' => 'ReportController@inputDateRange'
+]);
+
+Route::post('view_transactions/result', [
+    'as' => 'view.transactions.result',
+    'uses' => 'ReportController@viewTransactionsRange'
+]);
 //
 
 Auth::routes();
