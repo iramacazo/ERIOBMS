@@ -288,7 +288,7 @@ class ReportController extends Controller
                 ->withErrors($validator)
                 ->withInput();
         }
-        
+
         $transactions = Transaction::where([
             ['transaction_date', '>=', $request->mindate],
             ['transaction_date', '<=', $request->maxdate],

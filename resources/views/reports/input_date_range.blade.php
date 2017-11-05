@@ -1,32 +1,5 @@
 <html>
-<<<<<<< HEAD
-<head>
-    
-</head>
-<body>
-    <div>
-        <form action="{{route('view.transactions.result')}}" method="post" >
-            Minimum Date:
-            <input type="date" name="mindate">
-            Maximum Date:
-            <input type="date" name="maxdate">
-            {{ csrf_field() }}
-            <input type="submit" name="submit">
-        </form>
-        <div>
-            @if($errors->any())
-                <div class="errors">
-                    <ul>
-                        @foreach($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                            @endforeach
-                    </ul>
-                </div>
-                @endif
-        </div>
-    </div>
 </body>
-=======
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
@@ -93,7 +66,15 @@
                     <input type="submit" name="submit">
                 </form>
             </div>
+            @if($errors->any())
+                <div class="errors">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
         </div>
     </body>
->>>>>>> 8be5d81096f9158e70225b2f150946b02d553202
 </html>
