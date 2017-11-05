@@ -12,6 +12,17 @@
             {{ csrf_field() }}
             <input type="submit" name="submit">
         </form>
+        <div>
+            @if($errors->any())
+                <div class="errors">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                    </ul>
+                </div>
+                @endif
+        </div>
     </div>
 </body>
 </html>

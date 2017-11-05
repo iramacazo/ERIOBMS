@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\DateRange;
 use Illuminate\Http\Request;
 use App\Transaction;
 use App\ProposedBudget;
 use DB;
+use Illuminate\Support\Facades\Validator;
 
 class ReportController extends Controller
 {
@@ -275,6 +277,18 @@ class ReportController extends Controller
 
     public function viewTransactionsRange(Request $request){
         //todo running balance ng budget
+
+        $validator = Validator::make($request->all(), [
+            'mindate' => 'required|date',
+            'maxdate' => 'required|date|after:mindate',
+        ]);
+
+        if($validator->fails()){
+            return redirect(route("input.transaction.range"))
+                ->withErrors($validator)
+                ->withInput();
+        }
+        
         $transactions = Transaction::where([
             ['transaction_date', '>=', $request->mindate],
             ['transaction_date', '<=', $request->maxdate],
