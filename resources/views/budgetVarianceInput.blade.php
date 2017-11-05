@@ -56,7 +56,7 @@
 		<div class="container" id="main-body">
 			<div class="col-md-12 text-center">
 				<!-- Note: Pwede to gawing modal (tempo view).. pangenter lang ng term -->
-				<p>Choose a time slot to generate variance report</p>
+				<p>Choose an academic year and a term to generate a variance report</p>
 				<form action="{{ route('budget_variance_result') }}" method="POST">
 					@if($acad != null)
 						<select name="academic_year">
