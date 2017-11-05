@@ -94,7 +94,7 @@ class ReportController extends Controller
     	$data = collect([
     		"supplies" => collect([
     			"budget" => $budget->supplies, 
-    			"amount" => $supplies
+    			"amount" => $supplies,
     		]),
     		"transportation" => collect([
     			"budget" => $budget->transportation,
@@ -169,7 +169,8 @@ class ReportController extends Controller
     			"amount" => $orientation_programs
     		]),
     		"commitments_student" => collect([
-    			"budget" => $commitments_student
+    			"budget" => $budget->commitments_student,
+                "amount" => $commitments_student
     		])
     	]);
 
