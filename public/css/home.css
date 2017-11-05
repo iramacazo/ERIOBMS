@@ -2,32 +2,37 @@
     margin-top: -25px;
 }
 
-h1{
+h1 {
     color: #1d1e1f;
 }
 
-#propose_budget_button, #add_transaction_button{
+#propose_budget_button, #add_transaction_button {
     margin-top: 15px;
 }
 
-.row{
+.row {
     padding-top: 15px;
     padding-bottom: 15px;
 }
 
-#yearly_budget_area{
+#yearly-budget-block {
     padding-bottom: 15px;
     border-bottom: solid 1px #dcdcdc;
 }
 
-#transaction_area{
+#transactions-block {
     border-right: solid 1px #dcdcdc;
 }
 
-.dropdown-item{
+#view-block {
+    padding-top: 15px;
+    border-top: solid 1px #dcdcdc;
+}
+
+.dropdown-item {
     cursor: pointer;
 }
 
-.dropdown-item:active{
+.dropdown-item:active {
     background-color: #d4d4d4;
 }

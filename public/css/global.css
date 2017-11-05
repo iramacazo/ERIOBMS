@@ -1,48 +1,59 @@
-h1{
-    color: #ffffff;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
 
-body{
-    background: #ebebeb;
-}
+    h1{
+        color: #ffffff;
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
 
-#main-body{
-    top: 75px;
-}
+    body{
+        background: #ebebeb;
+    }
 
-.navbar{
-    height: 85px;
-    background: white;
-    padding-left: 20px;
-    border-bottom: 2px solid #919792;
-    box-shadow:0 1px 10px rgba(102, 114, 115, 0.53);
-    -moz-box-shadow:0 1px 10px rgba(102, 114, 115, 0.53);
-    -webkit-box-shadow:0 1px 10px rgba(102, 114, 115, 0.53);
-}
+    #main-body{
+        top: 75px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .navbar{
+        height: 85px;
+        background: white;
+        padding-left: 20px;
+        border-bottom: 2px solid #919792;
+        box-shadow:0 1px 10px rgba(102, 114, 115, 0.53);
+        -moz-box-shadow:0 1px 10px rgba(102, 114, 115, 0.53);
+        -webkit-box-shadow:0 1px 10px rgba(102, 114, 115, 0.53);
+    }
 
 
-.nav-icon{
-    height: 60px;
-    user-drag: none;
-    user-select: none;
-    -ms-user-select: none;
-    -moz-user-select: none;
-    -webkit-user-drag: none;
-    -webkit-user-select: none;
-}
+    .nav-icon{
+        height: 60px;
+        user-drag: none;
+        user-select: none;
+        -ms-user-select: none;
+        -moz-user-select: none;
+        -webkit-user-drag: none;
+        -webkit-user-select: none;
+    }
 
-.btn-primary{
-    background-color: #00703C;
-    border: #003319;
-}
+    .btn-primary{
+        background-color: #00703C;
+        border: #003319;
+    }
 
-.btn-primary:hover{
-    background-color: #007c42;
-    border: #00703C;
-}
+    .btn-primary:hover{
+        background-color: #007c42;
+        border: #00703C;
+    }
 
-.btn-primary.disabled{
-    background-color: #007d3e;
-    border: #00692f;
-}
+    .btn-primary.disabled{
+        background-color: #007d3e;
+        border: #00692f;
+    }
+
+    table {
+        margin-left: auto;
+        margin-right: auto;
+        border-spacing: 5px;
+        border-collapse: separate;
+    //    background-color: #1d1e1f;
+    }

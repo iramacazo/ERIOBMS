@@ -1,0 +1,25 @@
+
+    #main-body {
+    //    background-color: #1d1e1f;
+    }
+
+    th, td {
+        padding-top: 3px;
+        padding-left: 10px;
+        padding-right: 5px;
+        border-radius: 2px;
+        padding-bottom: 3px;
+        background-color: whitesmoke;
+    }
+
+    td {
+        text-align: right;
+    }
+
+    #budget-variance-report-column-header {
+        text-align: center;
+    }
+
+    #budget-variance-report-row-header {
+        text-align: left;
+    }
