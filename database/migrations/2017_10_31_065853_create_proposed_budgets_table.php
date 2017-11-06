@@ -37,6 +37,8 @@ class CreateProposedBudgetsTable extends Migration
             $table->decimal('capex',9,2);
             $table->decimal('orientation_programs',9,2);
             $table->decimal('commitments_student',9,2);
+            $table->decimal('international_events',9,2);
+            $table->decimal('support_for_outbound_students',9,2);
             $table->foreign('proposing_user')->references('username')->on('users');
             $table->timestamps();
         });

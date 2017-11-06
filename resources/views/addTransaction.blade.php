@@ -97,6 +97,8 @@
                                 <option value="international_travel">International Travel</option>
                                 <option value="representation">Representation</option>
                                 <option value="tokens">Internation Tokens</option>
+                                <option value="international_events">International Events</option>
+                                <option value="support_for_outbound_students">Support for Outbound Students</option>
                                 <option value="commitments_student">Commitments (Student)</option>
                                 <option value="commitments_official">Commitments (Official)</option>
                                 <option value="membership">Membership</option>

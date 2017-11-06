@@ -15,7 +15,7 @@ class ReportController extends Controller
 	public function getAllTerms(){
 		$data = ProposedBudget::orderBy('academic_year', 'asc')->groupBy('academic_year')->get();
 
-		return view('enterBudgetVariance', ['acad' => $data]);
+		return view('budgetVarianceInput', ['acad' => $data]);
 	}
 
     public function generateBudgetVariance(Request $request){
@@ -48,6 +48,8 @@ class ReportController extends Controller
     	$capex = 0;
     	$orientation_programs = 0;
     	$commitments_student = 0;
+        $international_events = 0;
+        $support_for_outbound_students = 0;
 
 
     	foreach($transactions as $t){
@@ -91,6 +93,10 @@ class ReportController extends Controller
     			$orientation_programs += $t->amount;
     		else if($t->category == "commitments_student")
     			$commitments_student += $t->amount;
+            else if($t->category == "support_for_outbound_students")
+                $support_for_outbound_students += $t->amount;
+            else if($t->category == "international_events")
+                $international_events += $t->amount;
     	}
 
     	$data = collect([
@@ -173,7 +179,15 @@ class ReportController extends Controller
     		"commitments_student" => collect([
     			"budget" => $budget->commitments_student,
                 "amount" => $commitments_student
-    		])
+    		]),
+            "international_events" => collect([
+                "budget" => $budget->international_events,
+                "amount" => $international_events
+            ]),
+            "support_for_outbound_students" => collect([
+                "budget" => $budget->support_for_outbound_students,
+                "amount" => $support_for_outbound_students
+            ])
     	]);
 
     	return view('budgetVarianceReport', ['data' => $data]);

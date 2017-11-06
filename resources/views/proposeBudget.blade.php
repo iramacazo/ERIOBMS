@@ -237,6 +237,26 @@
                             @endif
                         </div>
 
+                        {{-- Support for Outbound Students --}}
+                        <div class="form-group{{ $errors->has('support_for_outbound_students') ? ' has-danger' : '' }}">
+                            <label for="support_for_outbound_students">Support for Outbound Students</label>
+                            <input class="form-control number text-right" name="support_for_outbound_students"
+                                   value="{{old('support_for_outbound_students')}}" required>
+                            @if ($errors->has('support_for_outbound_students'))
+                                <div class="form-control-feedback">{{ $errors->first('support_for_outbound_students') }}</div>
+                            @endif
+                        </div>
+
+                        {{-- International Events --}}
+                        <div class="form-group{{ $errors->has('international_events') ? ' has-danger' : '' }}">
+                            <label for="international_events">International Events</label>
+                            <input class="form-control number text-right" name="international_events"
+                                   value="{{old('international_events')}}" required>
+                            @if ($errors->has('international_events'))
+                                <div class="form-control-feedback">{{ $errors->first('international_events') }}</div>
+                            @endif
+                        </div>
+
                         {{-- Orientation Programs --}}
                         <div class="form-group{{ $errors->has('orientation_programs') ? ' has-danger' : '' }}">
                             <label for="orientation_programs">Orientation Programs</label>

@@ -17,7 +17,8 @@ class ProposedBudget extends Model
         'proposing_user', 'academic_year', 'supplies', 'transportation',
         'mailing', 'meeting_expenses', 'workshop', 'mimeo', 'telephone', 'repairs_and_maintenance', 'publication',
         'uniform', 'international_travel', 'representation', 'tokens', 'commitments_official', 'membership',
-        'internationalization_programs', 'activities', 'capex', 'orientation_programs', 'commitments_student',
+        'internationalization_programs', 'activities', 'capex', 'orientation_programs', 'commitments_student', 
+        'support_for_outbound_students', 'international_events'
     ];
 
     public function user(){

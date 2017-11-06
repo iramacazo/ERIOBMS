@@ -49,6 +49,8 @@ class ProposedBudgetController extends Controller
             'commitments_student' => 'required',
             'activities' => 'required',
             'capex' => 'required',
+            'international_events' => 'required',
+            'support_for_outbound_students' => 'required'
         ]);
 
         if ($validator->fails()) {
@@ -86,6 +88,8 @@ class ProposedBudgetController extends Controller
     	$proposed->activities = $request->activities;
     	$proposed->capex = $request->capex;
     	$proposed->proposing_user = Auth::user()->username;
+        $proposed->international_events = $request->international_events;
+        $proposed->support_for_outbound_students = $request->support_for_outbound_students;
     	$proposed->save();
     	
     	return redirect(route('home'));
