@@ -96,4 +96,73 @@ class ProposedBudgetController extends Controller
     	
     	return redirect(route('home'));
     }
+
+    public function confirmBudgetView(){
+        $pending = ProposedBudget::latest()->first();
+
+        return view('confirmBudget', ["pending" => $pending]);
+    }
+
+    public function approveBudget(Request $request){
+        $validator = \Illuminate\Support\Facades\Validator::make($request->all(),[
+            'supplies' => 'required',
+            'transportation' => 'required',
+            'mailing' => 'required',
+            'meeting_expenses' => 'required',
+            'workshop' => 'required',
+            'mimeo' => 'required',
+            'telephone' => 'required',
+            'repairs_and_maintenance' => 'required',
+            'publication' => 'required',
+            'uniform' => 'required',
+            'international_travel' => 'required',
+            'representation' => 'required',
+            'tokens' => 'required',
+            'commitments_official' => 'required',
+            'membership' => 'required',
+            'internationalization_programs' => 'required',
+            'orientation_programs' => 'required',
+            'commitments_student' => 'required',
+            'activities' => 'required',
+            'capex' => 'required',
+            'international_events' => 'required',
+            'support_for_outbound_students' => 'required'
+        ]);
+
+
+        if ($validator->fails()) {
+            return redirect('/confirm_budget')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $approved = ProposedBudget::latest()->first();
+        $approved->approval_status = true;
+        $approved->supplies = $request->supplies;
+        $approved->transportation = $request->transportation;
+        $approved->mailing = $request->mailing;
+        $approved->meeting_expenses = $request->meeting_expenses;
+        $approved->workshop = $request->workshop;
+        $approved->mimeo = $request->mimeo;
+        $approved->telephone = $request->telephone;
+        $approved->repairs_and_maintenance = $request->repairs_and_maintenance;
+        $approved->publication = $request->publication;
+        $approved->uniform = $request->uniform;
+        $approved->international_travel = $request->international_travel;
+        $approved->representation = $request->representation;
+        $approved->tokens = $request->tokens;
+        $approved->commitments_official = $request->commitments_official;
+        $approved->membership = $request->membership;
+        $approved->internationalization_programs = $request->internationalization_programs;
+        $approved->orientation_programs = $request->orientation_programs;
+        $approved->commitments_student = $request->commitments_student;
+        $approved->activities = $request->activities;
+        $approved->capex = $request->capex;
+        $approved->proposing_user = Auth::user()->username;
+        $approved->international_events = $request->international_events;
+        $approved->support_for_outbound_students = $request->support_for_outbound_students;
+        $approved->save();
+
+        return redirect(route('home'));
+    }
 }

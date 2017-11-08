@@ -59,4 +59,6 @@ Route::get('/budget_variance', 'ReportController@getAllTerms')->name('budget_var
 
 Route::post('/budget_variance_result', 'ReportController@generateBudgetVariance')->name('budget_variance_result');
 
-Route::get('/confirm_budget', 'ProposedBudgetController@confirmBudgetView')->name('confirm_budget'); 
+Route::get('/confirm_budget', 'ProposedBudgetController@confirmBudgetView')->name('confirm_budget');
+
+Route::post('/approve_budget', 'ProposedBudgetController@approveBudget')->name('approve_budget'); 
