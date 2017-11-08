@@ -60,33 +60,33 @@
         There is no Approved Budget Last Year <br>
     @else
         <b> Approved Budget of S.Y. {{ $latest->academic_year }}-{{ $latest->academic_year + 1 }} </b> <br>
-        <b> Operating Expenses </b>
-        Supplies and Stationery: {{ $latest->supplies }} <br>
-        Transportation: {{ $latest->transportation }} <br>
-        Mailing: {{ $latest->mailing }} <br>
-        Meeting Expenses: {{ $latest->meeting_expenses }} <br>
-        Annual Workshop/TeamBuilding: {{ $latest->workshop }} <br>
-        Mimeo and Reproduction: {{ $latest->mimeo }} <br>
-        Telephone: {{ $latest->telephone }} <br>
-        Repairs and Maintenance: {{ $latest->repairs_and_maintenance }} <br>
+        <b> Operating Expenses </b><br>
+        Supplies and Stationery: {{ number_format($latest->supplies) }} <br>
+        Transportation: {{ number_format($latest->transportation) }} <br>
+        Mailing: {{ number_format($latest->mailing) }} <br>
+        Meeting Expenses: {{ number_format($latest->meeting_expenses) }} <br>
+        Annual Workshop/TeamBuilding: {{ number_format($latest->workshop) }} <br>
+        Mimeo and Reproduction: {{ number_format($latest->mimeo) }} <br>
+        Telephone: {{ number_format($latest->telephone) }} <br>
+        Repairs and Maintenance: {{ number_format($latest->repairs_and_maintenance) }} <br>
         <b> Other Operating Expenses </b> <br>
-        Publication/Subscription/Brochures: {{ $latest->publication }} <br>
-        Uniform: {{ $latest->uniform }} <br>
-        International Travel: {{ $latest->international_travel }} <br>
-        Representation: {{ $latest->representation }} <br>
-        Institutional Tokens: {{ $latest->tokens }} <br>
-        Official Institutional Functions: {{ $latest->commitments_official }} <br>
-        International and Local Membership and Hostings: {{ $latest->membership }} <br>
-        Internationalization Programs: {{ $latest->internationalization_programs }} <br>
-        Support for Outbound Students: {{ $latest->support_for_outbound_students }} <br>
-        International Events: {{ $latest->international_events }} <br>
-        Orientation Programs: {{ $latest->orientation_programs }} <br>
-        Institutional Commitments (Student Engagement): {{ $latest->commitments_student }} <br>
+        Publication/Subscription/Brochures: {{ number_format($latest->publication) }} <br>
+        Uniform: {{ number_format($latest->uniform) }} <br>
+        International Travel: {{ number_format($latest->international_travel) }} <br>
+        Representation: {{ number_format($latest->representation) }} <br>
+        Institutional Tokens: {{ number_format($latest->tokens) }} <br>
+        Official Institutional Functions: {{ number_format($latest->commitments_official) }} <br>
+        International and Local Membership and Hostings: {{ number_format($latest->membership) }} <br>
+        Internationalization Programs: {{ number_format($latest->internationalization_programs) }} <br>
+        Support for Outbound Students: {{ number_format($latest->support_for_outbound_students) }} <br>
+        International Events: {{ number_format($latest->international_events) }} <br>
+        Orientation Programs: {{ number_format($latest->orientation_programs) }} <br>
+        Institutional Commitments (Student Engagement): {{ number_format($latest->commitments_student) }} <br>
         <br>
-        <b> Activities/Projects - ABB </b> : {{ $latest->activities }} <br>
+        <b> Activities/Projects - ABB </b> : {{ number_format($latest->activities) }} <br>
         <!-- Maybe we should itemize --> Insert Items :D <br>
         <br>
-        <b> CAPEX: </b> {{ $latest->capex }} <br>
+        <b> CAPEX: </b> {{ number_format($latest->capex) }} <br>
         <!-- Insert all items for last year and LIST ITEMS this YEAR --> Insert Items :D <br>
     @endif
 
