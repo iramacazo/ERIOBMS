@@ -15,7 +15,7 @@ class ProposedBudgetSeeder extends Seeder
         DB::table('proposed_budgets')->insert([
         	'proposing_user' => 'lrteam',
         	'academic_year' => 2016,
-        	'approval_status' => false,
+        	'approval_status' => true,
         	'supplies' => 135000,
         	'transportation' => 84000,
         	'mailing' => 75500,

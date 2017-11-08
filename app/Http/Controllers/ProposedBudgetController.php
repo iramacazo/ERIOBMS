@@ -21,8 +21,10 @@ class ProposedBudgetController extends Controller
         else{
             $year = ProposedBudget::all()->sortByDesc('academic_year')->first()
                     ->academic_year + 1;
+            $latest = ProposedBudget::latest()->first(); //previous year's proposed budget
         }
-    	return view('proposeBudget', ['year' => $year]);
+
+    	return view('proposeBudget', ['year' => $year, 'latest' => $latest]);
     }
 
 

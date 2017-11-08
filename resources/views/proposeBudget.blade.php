@@ -54,6 +54,44 @@
 
 <!-- BODY -->
 <div class="container" id="main-body">
+
+    <!-- Pagandahin niyo nalang -->
+    @if($latest == null)
+        There is no Approved Budget Last Year <br>
+    @else
+        <b> Approved Budget of S.Y. {{ $latest->academic_year }}-{{ $latest->academic_year + 1 }} </b> <br>
+        <b> Operating Expenses </b>
+        Supplies and Stationery: {{ $latest->supplies }} <br>
+        Transportation: {{ $latest->transportation }} <br>
+        Mailing: {{ $latest->mailing }} <br>
+        Meeting Expenses: {{ $latest->meeting_expenses }} <br>
+        Annual Workshop/TeamBuilding: {{ $latest->workshop }} <br>
+        Mimeo and Reproduction: {{ $latest->mimeo }} <br>
+        Telephone: {{ $latest->telephone }} <br>
+        Repairs and Maintenance: {{ $latest->repairs_and_maintenance }} <br>
+        <b> Other Operating Expenses </b> <br>
+        Publication/Subscription/Brochures: {{ $latest->publication }} <br>
+        Uniform: {{ $latest->uniform }} <br>
+        International Travel: {{ $latest->international_travel }} <br>
+        Representation: {{ $latest->representation }} <br>
+        Institutional Tokens: {{ $latest->tokens }} <br>
+        Official Institutional Functions: {{ $latest->commitments_official }} <br>
+        International and Local Membership and Hostings: {{ $latest->membership }} <br>
+        Internationalization Programs: {{ $latest->internationalization_programs }} <br>
+        Support for Outbound Students: {{ $latest->support_for_outbound_students }} <br>
+        International Events: {{ $latest->international_events }} <br>
+        Orientation Programs: {{ $latest->orientation_programs }} <br>
+        Institutional Commitments (Student Engagement): {{ $latest->commitments_student }} <br>
+        <br>
+        <b> Activities/Projects - ABB </b> : {{ $latest->activities }} <br>
+        <!-- Maybe we should itemize --> Insert Items :D <br>
+        <br>
+        <b> CAPEX: </b> {{ $latest->capex }} <br>
+        <!-- Insert all items for last year and LIST ITEMS this YEAR --> Insert Items :D <br>
+    @endif
+
+    <!-- End of Previous Year's Budget -->
+
 	<div class="row">
 		<span class="col-md-1"></span>
 		<div class="col-md-10" id="budget_form">
