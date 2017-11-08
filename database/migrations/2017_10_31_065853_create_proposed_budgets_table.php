@@ -17,6 +17,7 @@ class CreateProposedBudgetsTable extends Migration
             $table->increments('id');
             $table->string('proposing_user');
             $table->integer('academic_year');
+            $table->boolean('approval_status');
             $table->decimal('supplies',9,2);
             $table->decimal('transportation',9,2);
             $table->decimal('mailing',9,2);
