@@ -95,7 +95,7 @@
 	<div class="row">
 		<span class="col-md-1"></span>
 		<div class="col-md-10" id="budget_form">
-            <h1>Add Annual Budget</h1>
+            <h1>Propose Annual Budget</h1>
 			<form action="{{ route('proposeBudget') }}" method='POST' class="form">
                 <!-- Academic Year -->
                 <div class="row">

@@ -277,10 +277,12 @@ class HomeController extends Controller
                     $categorybudget['capex']['term3'] += $category->amount;
             }
 
+            $latest = ProposedBudget::latest()->first();
+
             $amounts = collect(['term1' => $term1amount, 'term2' => $term2amount,
                                 'term3' => $term3amount]);
             return view('home', ['budgetdata' => $budgetdata, 'amounts' => $amounts,
-                                        'categorybudget' => $categorybudget]);
+                                        'categorybudget' => $categorybudget, 'latest' => $latest]);
         }
     }
 }

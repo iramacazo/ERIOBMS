@@ -80,14 +80,28 @@
                         <!-- YEARLY BUDGET -->
                         <div class="row" id="yearly-budget-block">
                             <div class="col-md-12 text-center">
-                                @if(\App\ProposedBudget::all()->count() == 0 )
+                                @if(\App\ProposedBudget::all()->count() == 0)
                                     <h3>There is no approved budget!</h3>
                                     <a href="{{route('goto_propose_budget')}}" role="button" id="propose_budget_button"
-                                       class="btn btn-primary">Add Budget</a>
+                                       class="btn btn-primary">Propose Budget</a>
+                                @elseif(\App\ProposedBudget::all()->count() == 1 && $latest->approval_status == false)
+                                    <h3>There is no approved budget!</h3>
+                                    <a href="{{route('confirm_budget')}}" role="button" id="propose_budget_button"
+                                       class="btn btn-primary float-right">Confirm Budget</a> <br>
+                                    Budget for {{ $latest->academic_year }}-{{ $latest->academic_year + 1 }} is currently pending 
+                                        <!-- sorry sinira ko - paayos nalang UI -->
                                 @else
+                                    @if($latest->approval_status == true)
                                     <div id="chartContainer" style="height: 300px; width: 100%;"></div>
                                     <a href="{{route('goto_propose_budget')}}" role="button" id="propose_budget_button"
-                                       class="btn btn-primary float-right">Add Budget</a>
+                                       class="btn btn-primary">Propose Budget</a>
+                                    @else
+                                    <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+                                    <a href="{{route('confirm_budget')}}" role="button" id="propose_budget_button"
+                                       class="btn btn-primary float-right">Confirm Budget</a> <br>
+                                    Budget for {{ $latest->academic_year }}-{{ $latest->academic_year + 1 }} is currently pending 
+                                        <!-- sorry sinira ko - paayos nalang UI -->
+                                    @endif
                                 @endif
                             </div>
                         </div>

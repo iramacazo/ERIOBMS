@@ -58,3 +58,5 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/budget_variance', 'ReportController@getAllTerms')->name('budget_variance');
 
 Route::post('/budget_variance_result', 'ReportController@generateBudgetVariance')->name('budget_variance_result');
+
+Route::get('/confirm_budget', 'ProposedBudgetController@confirmBudgetView')->name('confirm_budget'); 
