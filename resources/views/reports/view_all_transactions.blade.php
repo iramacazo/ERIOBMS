@@ -11,7 +11,7 @@
         <script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
         <script src="{{asset('js/bootstrap.min.js')}}"></script>
         <script>
-            $(document).ready(function() {
+            /*$(document).ready(function() {
                 jQuery('.tabs .tab-links a').on('click', function(e)  {
                     var currentAttrValue = jQuery(this).attr('href');
 
@@ -23,9 +23,12 @@
 
                     e.preventDefault();
                 });
-            });
+            });*/
         </script>
         <script src="{{asset('js/canvasjs.min.js')}}"></script>
+
+        <link rel="stylesheet" type="text/css" href="{{asset('DataTables/datatables.min.css')}}"/>
+        <script type="text/javascript" src="{{asset('DataTables/datatables.min.js')}}"></script>
 
         <!-- Global CSS for Background Colours and fonts and stuff -->
         <link rel="stylesheet" href="{{asset('css/global.css')}}">
@@ -69,7 +72,7 @@
 
     <!-- todo tabs -->
 
-        <div class="container" id="main-body">
+       {{-- <div class="container" id="main-body">
             <p>All Transactions</p>
 
             <div class="tabs">
@@ -581,6 +584,77 @@
             </div> <!-- end of tabs div-->
 
         </div> <!-- end of content div -->
+--}}
+
+        <div class="row">
+            <span class="col-md-2"></span>
+            <div class="col-md-8" id="main-container">
+                <h2 class="float-left">Transactions</h2>
+                <div class="dropdown float-right">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dd-menu-button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        All
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" aria-label="gay" id="dropdowncategory">
+                        <a class="dropdown-item category" name="activities">
+                            Activities/Projects - ABB </a>
+                        <a class="dropdown-item category" name="workshop">
+                            Annual Workshops/Teambuilding</a>
+                        <a class="dropdown-item category" name="capex">
+                            Capex</a>
+                        <a class="dropdown-item category" name="commitments_official">
+                            Commitments - Official</a>
+                        <a class="dropdown-item category" name="commitments_student">
+                            Commitments - Students</a>
+                        <a class="dropdown-item category" name="membership">
+                            International and Local Membership and Hostings</a>
+                        <a class="dropdown-item category" name="tokens">
+                            Institutional Tokens</a>
+                        <a class="dropdown-item category" name="international_travel">
+                            International Travel</a>
+                        <a class="dropdown-item category" name="internationalization_programs">
+                            Internationalization Programs</a>
+                        <a class="dropdown-item category" name="mailing">
+                            Mailing</a>
+                        <a class="dropdown-item category" name="meeting_expenses">
+                            Meeting Expenses</a>
+                        <a class="dropdown-item category" name="mimeo">
+                            Mimeo and Reproduction</a>
+                        <a class="dropdown-item category" name="orientation_programs">
+                            Orientation Programs</a>
+                        <a class="dropdown-item category" name="publication">
+                            Publication</a>
+                        <a class="dropdown-item category" name="repairs_and_maintenance">
+                            Repairs and Maintenance</a>
+                        <a class="dropdown-item category" name="representation">
+                            Representation</a>
+                        <a class="dropdown-item category" name="supplies">
+                            Supplies</a>
+                        <a class="dropdown-item category" name="telephone">
+                            Telephone</a>
+                        <a class="dropdown-item category" name="transportation">
+                            Transportation</a>
+                        <a class="dropdown-item category" name="uniform">
+                            Uniform</a>
+                    </div>
+                </div>
+
+                <table class="table">
+                    <thead class="thead-default">
+                    <tr>
+                        <th>Date</th>
+                        <th>Item</th>
+                        <th>Owner</th>
+                        <th>Description</th>
+                        <th>Amount</th>
+                        <th>Running Balance</th>
+                    </tr>
+                    </thead>
+                </table>
+
+            </div>
+            <span class="col-md-2"></span>
+        </div>
 
     </body>
 </html>

@@ -1,16 +1,16 @@
 
-    p {
+ /*   p {
         text-align: center;
     }
 
-    /*----- Tabs -----*/
+    !*----- Tabs -----*!
     .tabs {
         width:100%;
         display:inline-block;
     }
 
-    /*----- Tab Links -----*/
-    /* Clearfix */
+    !*----- Tab Links -----*!
+    !* Clearfix *!
     .tab-links:after {
         display:block;
         clear:both;
@@ -44,7 +44,7 @@
         color:#4c4c4c;
     }
 
-    /*----- Content of Tabs -----*/
+    !*----- Content of Tabs -----*!
     .tab-content {
         padding:15px;
         border-radius:3px;
@@ -58,4 +58,12 @@
 
     .tab.active {
         display:block;
-    }
+    }*/
+
+ #main-container{
+     margin-top: 20px;
+     background-color: white;
+     border-radius: 5px;
+     min-height: 100px;
+     padding: 25px;
+ }

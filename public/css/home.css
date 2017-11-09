@@ -6,8 +6,9 @@ h1 {
     color: #1d1e1f;
 }
 
-#propose_budget_button, #add_transaction_button {
+#propose_budget_button, #add_transaction_button, #view_all_transactions_button {
     margin-top: 15px;
+    margin-right: 10px;
 }
 
 .row {

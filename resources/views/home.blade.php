@@ -93,6 +93,7 @@
                                 @else
                                     @if($latest->approval_status == true)
                                     <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+                                    <h4 class="float-left" style="margin-left: 30px" id="totalbudget"></h4>
                                     <a href="{{route('goto_propose_budget')}}" role="button" id="propose_budget_button"
                                        class="btn btn-primary">Propose Budget</a>
                                     @else
@@ -140,6 +141,9 @@
                                     </div>
                                     <a href="{{route('goto_add_transaction')}}" role="button"
                                        class="float-right btn btn-primary" id="add_transaction_button">Add Transaction</a>
+                                    <a href="{{route('view.all.transactions')}}" role="button"
+                                        class="float-right btn btn-primary" id="view_all_transactions_button">
+                                        View All Transactions</a>
                                 @endif
                             </div>
 
@@ -195,13 +199,14 @@
                                 </div>
                                 <br><br>
                                 <div id="chartContainer2" style="height: 300px; width: 100%; display: none"></div>
+                                <h4 class="float-left" style="margin-left: 30px" id="categorybudget"></h4>
                                 <h4 id="categorySplash">Select a category to see specific expenses</h4>
                             </div>
                         </div>
 
                         <div class="col-md-12 text-center" id = "view-block">
                             <a href="{{ route('budget_variance') }}"> Generate Budget Variance Report </a><br>
-                            <a href="{{route('view.all.transactions')}}">View All Transactions</a> <!-- todo itsura/naming --> <br>
+                             <!-- todo itsura/naming --> <br>
                             <a href="{{route('input.transaction.range')}}">View Transactions Date Range</a>
                         </div>
                     </div>

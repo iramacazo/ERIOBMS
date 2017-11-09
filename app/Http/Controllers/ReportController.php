@@ -195,9 +195,17 @@ class ReportController extends Controller
 
     //todo finish this
     public function viewAllTransactions(){ //all transactions from the beginning of time grouped by category
-        $supplies = Transaction::where('category', 'supplies')
-            ->orderBy('transaction_date', 'DESC')
-            ->get();
+        $academic_year = ProposedBudget::all()
+                        ->where('approval_status', true)
+                        ->sortByDesc('created_at')
+                        ->first()
+                        ->academic_year;
+
+        $all = Transaction::all()->where('academic_year', '=', $academic_year)
+                            ->sortByDesc('created_at');
+
+        $supplies = Transaction::all()->where('category', '=','supplies')
+            ->sortByDesc('transaction_date');
 
         $transportation = Transaction::where('category', 'transportation')
             ->orderBy('transaction_date', 'DESC')
@@ -275,7 +283,7 @@ class ReportController extends Controller
             ->orderBy('transaction_date', 'DESC')
             ->get();
 
-        return view("reports/view_all_transactions", [
+        return view("reports/view_all_transactions", ['all' => $all,
             'supplies' => $supplies, 'transportation' => $transportation,
             'mailing' => $mailing, 'meeting_expenses' => $meetings,
             'workshop' => $workshop, 'mimeo' => $mimeo,

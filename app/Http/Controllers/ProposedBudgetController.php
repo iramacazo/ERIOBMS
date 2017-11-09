@@ -16,15 +16,17 @@ class ProposedBudgetController extends Controller
             return redirect('/login');
         }
 
-        if(ProposedBudget::all()->count() == 0)
+        if(ProposedBudget::all()->count() == 0){
             $year = Carbon::now()->year + 0;
+            return view('proposeBudget', ['year' => $year, 'latest' => null]);
+        }
         else{
             $year = ProposedBudget::all()->sortByDesc('academic_year')->first()
                     ->academic_year + 1;
             $latest = ProposedBudget::latest()->first(); //previous year's proposed budget
+            return view('proposeBudget', ['year' => $year, 'latest' => $latest]);
         }
 
-    	return view('proposeBudget', ['year' => $year, 'latest' => $latest]);
     }
 
 

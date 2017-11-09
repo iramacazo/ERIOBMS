@@ -9,9 +9,9 @@
     }
 
     #main-body{
-        top: 75px;
         margin-left: auto;
         margin-right: auto;
+        padding: 50px;
     }
 
     .navbar{
@@ -50,19 +50,3 @@
         border: #00692f;
     }
 
-    table {
-        margin-left: auto;
-        margin-right: auto;
-        border-spacing: 5px;
-        border-collapse: separate;
-    //    background-color: #1d1e1f;
-    }
-
-    th, td {
-        padding-top: 3px;
-        padding-left: 10px;
-        padding-right: 5px;
-        border-radius: 2px;
-        padding-bottom: 3px;
-        background-color: whitesmoke;
-    }

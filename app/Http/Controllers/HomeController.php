@@ -277,7 +277,7 @@ class HomeController extends Controller
                     $categorybudget['capex']['term3'] += $category->amount;
             }
 
-            $latest = ProposedBudget::latest()->first();
+            $latest = ProposedBudget::all()->sortByDesc('created_at')->first();
 
             $amounts = collect(['term1' => $term1amount, 'term2' => $term2amount,
                                 'term3' => $term3amount]);
