@@ -24,7 +24,8 @@ window.onload = function() {
     totalbudget += parseFloat(budgetdata['orientation_programs']);
     totalbudget += parseFloat(budgetdata['commitments_student']);
     // Formats the numbers
-    console.log(totalbudget.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+    $("#totalbudget").text("Total Budget: P" + totalbudget.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
+    console.log();
 
     var term1 = (parseFloat(termdata["term1"]) / totalbudget) * 100;
     var term2 = (parseFloat(termdata["term2"]) / totalbudget) * 100;
@@ -68,6 +69,7 @@ window.onload = function() {
         var texty =  this.text + " in A.Y. " + budgetdata["academic_year"] + " - "+
                     (parseInt(budgetdata["academic_year"]) + 1);
 
+        $("#categorybudget").text("Total budget: P" + total.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,") );
         var remaining = total - (term1 + term2 + term3);
 
         var chart1 = new CanvasJS.Chart("chartContainer2", {
