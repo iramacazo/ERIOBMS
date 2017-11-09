@@ -61,7 +61,7 @@
 				<table>
 					<tr>
 						<th>Categories</th>
-						<th id = "budget-variance-report-column-header">Oracle Code</th>
+						<th id = "budget-variance-report-column-header">Orable Code</th>
 						<th id = "budget-variance-report-column-header">Budget</th>
 						<th id = "budget-variance-report-column-header">Actual</th>
 						<th id = "budget-variance-report-column-header">Difference</th>
