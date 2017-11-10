@@ -26,12 +26,8 @@
             });*/
         </script>
 
-        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.16/b-1.4.2/kt-2.3.2/datatables.min.css"/>
-
-        <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.16/b-1.4.2/kt-2.3.2/datatables.min.js"></script>
-
-        {{--<link rel="stylesheet" type="text/css" href="{{asset('DataTables/datatables.css')}}"/>
-        <script type="text/javascript" src="{{asset('DataTables/datatables.js')}}"></script>--}}
+        <link rel="stylesheet" type="text/css" href="{{asset('DataTables/datatables.css')}}"/>
+        <script type="text/javascript" src="{{asset('DataTables/datatables.js')}}"></script>
 
         <!-- Global CSS for Background Colours and fonts and stuff -->
         <link rel="stylesheet" href="{{asset('css/global.css')}}">
@@ -593,88 +589,80 @@
         <div class="row">
             <span class="col-md-2"></span>
             <div class="col-md-8" id="main-container">
-                <h2 class="float-left">Transactions</h2>
+                <div class="d-flex flex-row justify-content-between">
+                    <h2>Transactions</h2>
+                    <div class="d-flex flex-row-reverse align-items-center align-content-center">
+                        <button class="btn btn-primary">Filter</button>
 
-                <button class="btn btn-primary float-right">Filter</button>
-
-                <div class="dropdown float-right" style="margin-right: 15px">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dd-menu-button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        All
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right" aria-label="gay" id="dropdowncategory">
-                        <a class="dropdown-item category" name="activities">
-                            Activities/Projects - ABB </a>
-                        <a class="dropdown-item category" name="workshop">
-                            Annual Workshops/Teambuilding</a>
-                        <a class="dropdown-item category" name="capex">
-                            Capex</a>
-                        <a class="dropdown-item category" name="commitments_official">
-                            Commitments - Official</a>
-                        <a class="dropdown-item category" name="commitments_student">
-                            Commitments - Students</a>
-                        <a class="dropdown-item category" name="international_events">
-                            International Events</a>
-                        <a class="dropdown-item category" name="membership">
-                            International and Local Membership and Hostings</a>
-                        <a class="dropdown-item category" name="tokens">
-                            Institutional Tokens</a>
-                        <a class="dropdown-item category" name="international_travel">
-                            International Travel</a>
-                        <a class="dropdown-item category" name="internationalization_programs">
-                            Internationalization Programs</a>
-                        <a class="dropdown-item category" name="mailing">
-                            Mailing</a>
-                        <a class="dropdown-item category" name="meeting_expenses">
-                            Meeting Expenses</a>
-                        <a class="dropdown-item category" name="mimeo">
-                            Mimeo and Reproduction</a>
-                        <a class="dropdown-item category" name="orientation_programs">
-                            Orientation Programs</a>
-                        <a class="dropdown-item category" name="publication">
-                            Publication</a>
-                        <a class="dropdown-item category" name="repairs_and_maintenance">
-                            Repairs and Maintenance</a>
-                        <a class="dropdown-item category" name="representation">
-                            Representation</a>
-                        <a class="dropdown-item category" name="supplies">
-                            Supplies</a>
-                        <a class="dropdown-item category" name="support_for_outbound_students">
-                            Support for Outbound Students</a>
-                        <a class="dropdown-item category" name="telephone">
-                            Telephone</a>
-                        <a class="dropdown-item category" name="transportation">
-                            Transportation</a>
-                        <a class="dropdown-item category" name="uniform">
-                            Uniform</a>
+                        <div class="dropdown" style="margin-right: 15px">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dd-menu-button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                All
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right" aria-label="gay" id="dropdowncategory">
+                                <a class="dropdown-item category" name="activities">
+                                    Activities/Projects - ABB </a>
+                                <a class="dropdown-item category" name="workshop">
+                                    Annual Workshops/Teambuilding</a>
+                                <a class="dropdown-item category" name="capex">
+                                    Capex</a>
+                                <a class="dropdown-item category" name="commitments_official">
+                                    Commitments - Official</a>
+                                <a class="dropdown-item category" name="commitments_student">
+                                    Commitments - Students</a>
+                                <a class="dropdown-item category" name="international_events">
+                                    International Events</a>
+                                <a class="dropdown-item category" name="membership">
+                                    International and Local Membership and Hostings</a>
+                                <a class="dropdown-item category" name="tokens">
+                                    Institutional Tokens</a>
+                                <a class="dropdown-item category" name="international_travel">
+                                    International Travel</a>
+                                <a class="dropdown-item category" name="internationalization_programs">
+                                    Internationalization Programs</a>
+                                <a class="dropdown-item category" name="mailing">
+                                    Mailing</a>
+                                <a class="dropdown-item category" name="meeting_expenses">
+                                    Meeting Expenses</a>
+                                <a class="dropdown-item category" name="mimeo">
+                                    Mimeo and Reproduction</a>
+                                <a class="dropdown-item category" name="orientation_programs">
+                                    Orientation Programs</a>
+                                <a class="dropdown-item category" name="publication">
+                                    Publication</a>
+                                <a class="dropdown-item category" name="repairs_and_maintenance">
+                                    Repairs and Maintenance</a>
+                                <a class="dropdown-item category" name="representation">
+                                    Representation</a>
+                                <a class="dropdown-item category" name="supplies">
+                                    Supplies</a>
+                                <a class="dropdown-item category" name="support_for_outbound_students">
+                                    Support for Outbound Students</a>
+                                <a class="dropdown-item category" name="telephone">
+                                    Telephone</a>
+                                <a class="dropdown-item category" name="transportation">
+                                    Transportation</a>
+                                <a class="dropdown-item category" name="uniform">
+                                    Uniform</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="dropdown float-right" style="margin-right: 15px">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dd-menu-button"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Academic Year
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right" aria-label="gay" id="dropdowncategory">
-                        @foreach($academic_years as $year)
-                            <a class="dropdown-item year" name="{{$year->academic_year}}">
-                                A.Y. {{$year->academic_year}} - {{$year->academic_year + 1 }}
-                            </a>
-                        @endforeach
-                    </div>
-                </div>
+                <br>
 
-                <table class="table table-striped table-bordered" id="#transactions_table">
-                    <thead class="thead-default">
-                    <tr>
-                        <th>Date</th>
-                        <th>Item</th>
-                        <th>Owner</th>
-                        <th>Description</th>
-                        <th>Amount</th>
-                    </tr>
-                    </thead>
-                    <tbody id="transactions_body">
+                <div class="d-flex flex-row">
+                    <table class="table table-striped" id="transactions_table">
+                        <thead class="thead-default">
+                        <tr>
+                            <th>Date</th>
+                            <th>Item</th>
+                            <th>Owner</th>
+                            <th>Description</th>
+                            <th>Amount</th>
+                        </tr>
+                        </thead>
+                        <tbody id="transactions_body">
                         @foreach($all as $trans)
                             <tr>
                                 <td>{{ $trans->transaction_date}}</td>
@@ -684,9 +672,9 @@
                                 <td class="text-right">P{{ number_format($trans->amount, 2) }}</td>
                             </tr>
                         @endforeach
-                    </tbody>
-                </table>
-
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <span class="col-md-2"></span>
         </div>

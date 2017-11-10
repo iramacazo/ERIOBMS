@@ -109,7 +109,7 @@
                         <div class="row">
                             <!-- TRANSACTIONS -->
                             <div class="col-md-6" id="transactions-block">
-                                @if(\App\Transaction::all()->count() == 0)
+                                @if($all->count() == 0)
                                     <div class="text-center">
                                         <br>
                                         <h4>There are currently no transactions</h4>
@@ -126,7 +126,7 @@
                                 @else
                                     <h3>Latest Transactions</h3>
                                     <div class="list-group">
-                                    @foreach(\App\Transaction::all()->sortByDesc('transaction_date')->take(5)
+                                    @foreach($all->sortByDesc('transaction_date')->take(5)
                                                     as $something)
                                         <div class="list-group-item flex-column align-items-start">
                                             <div class="d-flex w-100 justify-content-between">

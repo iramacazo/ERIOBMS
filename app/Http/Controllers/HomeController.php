@@ -141,7 +141,13 @@ class HomeController extends Controller
                    'term3' => 0
                ]) ,
             ]);
-            $budgetdata = ProposedBudget::all()->first();
+            $budgetdata = ProposedBudget::all()
+                ->where('approval_status', 'is', true)
+                ->sortByDesc('created_at')
+                ->first();
+
+            $all = Transaction::all()->where('budget_id', 'is',$budgetdata->id);
+
             $term1 = Transaction::all()->where('term',1)
                                 ->where('budget_id', $budgetdata->id);
             $term2 = Transaction::all()->where('term',2)
@@ -303,7 +309,7 @@ class HomeController extends Controller
 
             $amounts = collect(['term1' => $term1amount, 'term2' => $term2amount,
                                 'term3' => $term3amount]);
-            return view('home', ['budgetdata' => $budgetdata, 'amounts' => $amounts,
+            return view('home', ['budgetdata' => $budgetdata, 'amounts' => $amounts, 'all' => $all,
                                         'categorybudget' => $categorybudget, 'latest' => $latest]);
         }
     }
