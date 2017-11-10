@@ -54,42 +54,6 @@
 
 <!-- BODY -->
 <div class="container" id="main-body">
-
-    <!-- Pagandahin niyo nalang -->
-    @if($latest == null)
-        There is no Approved Budget Last Year <br>
-    @else
-        <b> Approved Budget of S.Y. {{ $latest->academic_year }}-{{ $latest->academic_year + 1 }} </b> <br>
-        <b> Operating Expenses </b><br>
-        Supplies and Stationery: {{ number_format($latest->supplies) }} <br>
-        Transportation: {{ number_format($latest->transportation) }} <br>
-        Mailing: {{ number_format($latest->mailing) }} <br>
-        Meeting Expenses: {{ number_format($latest->meeting_expenses) }} <br>
-        Annual Workshop/TeamBuilding: {{ number_format($latest->workshop) }} <br>
-        Mimeo and Reproduction: {{ number_format($latest->mimeo) }} <br>
-        Telephone: {{ number_format($latest->telephone) }} <br>
-        Repairs and Maintenance: {{ number_format($latest->repairs_and_maintenance) }} <br>
-        <b> Other Operating Expenses </b> <br>
-        Publication/Subscription/Brochures: {{ number_format($latest->publication) }} <br>
-        Uniform: {{ number_format($latest->uniform) }} <br>
-        International Travel: {{ number_format($latest->international_travel) }} <br>
-        Representation: {{ number_format($latest->representation) }} <br>
-        Institutional Tokens: {{ number_format($latest->tokens) }} <br>
-        Official Institutional Functions: {{ number_format($latest->commitments_official) }} <br>
-        International and Local Membership and Hostings: {{ number_format($latest->membership) }} <br>
-        Internationalization Programs: {{ number_format($latest->internationalization_programs) }} <br>
-        Support for Outbound Students: {{ number_format($latest->support_for_outbound_students) }} <br>
-        International Events: {{ number_format($latest->international_events) }} <br>
-        Orientation Programs: {{ number_format($latest->orientation_programs) }} <br>
-        Institutional Commitments (Student Engagement): {{ number_format($latest->commitments_student) }} <br>
-        <br>
-        <b> Activities/Projects - ABB </b> : {{ number_format($latest->activities) }} <br>
-        <!-- Maybe we should itemize --> Insert Items :D <br>
-        <br>
-        <b> CAPEX: </b> {{ number_format($latest->capex) }} <br>
-        <!-- Insert all items for last year and LIST ITEMS this YEAR --> Insert Items :D <br>
-    @endif
-
     <!-- End of Previous Year's Budget -->
 
 	<div class="row">
@@ -117,6 +81,13 @@
                             <label for="supplies">Supplies and Stationary</label>
                             <input class="form-control number text-right" name="supplies" value="{{old('supplies')}}"
                                    required>
+
+                            @if($latest != null)
+                                <small class="form-text text-muted">Budget for
+                                A.Y. {{$latest->academic_year}}-{{ $latest->academic_year + 1 }}:
+                                P{{number_format($latest->supplies)}}</small>
+                            @endif
+
                             @if ($errors->has('supplies'))
                                 <div class="form-control-feedback">{{ $errors->first('supplies') }}</div>
                             @endif
@@ -127,6 +98,13 @@
                             <label for="transportation">Transportation</label>
                             <input class="form-control number text-right" name="transportation"
                                    value="{{old('transportation')}}" required>
+
+                            @if($latest != null)
+                                <small class="form-text text-muted">Budget for
+                                    A.Y. {{$latest->academic_year}}-{{ $latest->academic_year + 1 }}:
+                                    P{{number_format($latest->transportation)}}</small>
+                            @endif
+
                             @if ($errors->has('transportation'))
                                 <div class="form-control-feedback">{{ $errors->first('transportation') }}</div>
                             @endif
@@ -137,7 +115,14 @@
                             <label for="mailing">Mailing</label>
                             <input class="form-control number text-right" name="mailing" value="{{old('mailing')}}"
                                    required>
-                            @if ($errors->has('mailiag'))
+
+                            @if($latest != null)
+                                <small class="form-text text-muted">Budget for
+                                    A.Y. {{$latest->academic_year}}-{{ $latest->academic_year + 1 }}:
+                                    P{{number_format($latest->mailing)}}</small>
+                            @endif
+
+                            @if ($errors->has('mailing'))
                                 <div class="form-control-feedback">{{ $errors->first('mailing') }}</div>
                             @endif
                         </div>
@@ -147,6 +132,13 @@
                             <label for="workshop">Annual Workshop/Teambuilding</label>
                             <input class="form-control number text-right" name="workshop" value="{{old('workshop')}}"
                                    required>
+
+                            @if($latest != null)
+                                <small class="form-text text-muted">Budget for
+                                    A.Y. {{$latest->academic_year}}-{{ $latest->academic_year + 1 }}:
+                                    P{{number_format($latest->workshop)}}</small>
+                            @endif
+
                             @if ($errors->has('workshop'))
                                 <div class="form-control-feedback">{{ $errors->first('workshop') }}</div>
                             @endif
@@ -157,6 +149,13 @@
                             <label for="mimeo">Mimeo</label>
                             <input class="form-control number text-right" name="mimeo" value="{{old('mimeo')}}"
                                    required>
+
+                            @if($latest != null)
+                                <small class="form-text text-muted">Budget for
+                                    A.Y. {{$latest->academic_year}}-{{ $latest->academic_year + 1 }}:
+                                    P{{number_format($latest->mimeo)}}</small>
+                            @endif
+
                             @if ($errors->has('mimeo'))
                                 <div class="form-control-feedback">{{ $errors->first('mimeo') }}</div>
                             @endif
@@ -167,6 +166,13 @@
                             <label for="telephone">Telephone</label>
                             <input class="form-control number text-right" name="telephone" value="{{old('telephone')}}"
                                    required>
+
+                            @if($latest != null)
+                                <small class="form-text text-muted">Budget for
+                                    A.Y. {{$latest->academic_year}}-{{ $latest->academic_year + 1 }}:
+                                    P{{number_format($latest->telephone)}}</small>
+                            @endif
+
                             @if ($errors->has('telephone'))
                                 <div class="form-control-feedback">{{ $errors->first('telephone') }}</div>
                             @endif
@@ -177,6 +183,13 @@
                             <label for="repairs_and_maintenance">Repairs and Maintenance</label>
                             <input class="form-control number text-right" name="repairs_and_maintenance"
                                    value="{{old('repairs_and_maintenance')}}" required>
+
+                            @if($latest != null)
+                                <small class="form-text text-muted">Budget for
+                                    A.Y. {{$latest->academic_year}}-{{ $latest->academic_year + 1 }}:
+                                    P{{number_format($latest->repais_and_maintenance)}}</small>
+                            @endif
+
                             @if ($errors->has('repairs_and_maintenance'))
                                 <div class="form-control-feedback">{{ $errors->first('repairs_and_maintenance') }}</div>
                             @endif
@@ -187,6 +200,13 @@
                             <label for="meeting_expenses">Meeting Expenses</label>
                             <input class="form-control number text-right" name="meeting_expenses"
                                    value="{{old('meeting_expenses')}}" required>
+
+                            @if($latest != null)
+                                <small class="form-text text-muted">Budget for
+                                    A.Y. {{$latest->academic_year}}-{{ $latest->academic_year + 1 }}:
+                                    P{{number_format($latest->meeting_expenses)}}</small>
+                            @endif
+
                             @if ($errors->has('meeting_expenses'))
                                 <div class="form-control-feedback">{{ $errors->first('meeting_expenses') }}</div>
                             @endif
@@ -200,6 +220,13 @@
                             <label for="publication">Publication</label>
                             <input class="form-control number text-right" name="publication"
                                    value="{{old('publication')}}" required>
+
+                            @if($latest != null)
+                                <small class="form-text text-muted">Budget for
+                                    A.Y. {{$latest->academic_year}}-{{ $latest->academic_year + 1 }}:
+                                    P{{number_format($latest->publication)}}</small>
+                            @endif
+
                             @if ($errors->has('publication'))
                                 <div class="form-control-feedback">{{ $errors->first('publication') }}</div>
                             @endif
@@ -210,6 +237,13 @@
                             <label for="uniform">Uniform</label>
                             <input class="form-control number text-right" name="uniform"
                                    value="{{old('uniform')}}" required>
+
+                            @if($latest != null)
+                                <small class="form-text text-muted">Budget for
+                                    A.Y. {{$latest->academic_year}}-{{ $latest->academic_year + 1 }}:
+                                    P{{number_format($latest->uniform)}}</small>
+                            @endif
+
                             @if ($errors->has('uniform'))
                                 <div class="form-control-feedback">{{ $errors->first('uniform') }}</div>
                             @endif
@@ -220,6 +254,13 @@
                             <label for="international_travel">International Travel</label>
                             <input class="form-control number text-right" name="international_travel"
                                    value="{{old('international_travel')}}" required>
+
+                            @if($latest != null)
+                                <small class="form-text text-muted">Budget for
+                                    A.Y. {{$latest->academic_year}}-{{ $latest->academic_year + 1 }}:
+                                    P{{number_format($latest->international_travel)}}</small>
+                            @endif
+
                             @if ($errors->has('international_travel'))
                                 <div class="form-control-feedback">{{ $errors->first('international_travel') }}</div>
                             @endif
@@ -230,6 +271,13 @@
                             <label for="representation">Representation</label>
                             <input class="form-control number text-right" name="representation"
                                    value="{{old('representation')}}" required>
+
+                            @if($latest != null)
+                                <small class="form-text text-muted">Budget for
+                                    A.Y. {{$latest->academic_year}}-{{ $latest->academic_year + 1 }}:
+                                    P{{number_format($latest->representation)}}</small>
+                            @endif
+
                             @if ($errors->has('representation'))
                                 <div class="form-control-feedback">{{ $errors->first('representation') }}</div>
                             @endif
@@ -240,6 +288,13 @@
                             <label for="tokens">Institutional Tokens</label>
                             <input class="form-control number text-right" name="tokens"
                                    value="{{old('tokens')}}" required>
+
+                            @if($latest != null)
+                                <small class="form-text text-muted">Budget for
+                                    A.Y. {{$latest->academic_year}}-{{ $latest->academic_year + 1 }}:
+                                    P{{number_format($latest->tokens)}}</small>
+                            @endif
+
                             @if ($errors->has('tokens'))
                                 <div class="form-control-feedback">{{ $errors->first('tokens') }}</div>
                             @endif
@@ -250,6 +305,13 @@
                             <label for="commitments_official">Commitments Official</label>
                             <input class="form-control number text-right" name="commitments_official"
                                    value="{{old('commitments_official')}}" required>
+
+                            @if($latest != null)
+                                <small class="form-text text-muted">Budget for
+                                    A.Y. {{$latest->academic_year}}-{{ $latest->academic_year + 1 }}:
+                                    P{{number_format($latest->commitments_official)}}</small>
+                            @endif
+
                             @if ($errors->has('commitments_official'))
                                 <div class="form-control-feedback">{{ $errors->first('commitments_official') }}</div>
                             @endif
@@ -260,6 +322,13 @@
                             <label for="membership">International and Local Membership and Hostings</label>
                             <input class="form-control number text-right" name="membership"
                                    value="{{old('membership')}}" required>
+
+                            @if($latest != null)
+                                <small class="form-text text-muted">Budget for
+                                    A.Y. {{$latest->academic_year}}-{{ $latest->academic_year + 1 }}:
+                                    P{{number_format($latest->membership)}}</small>
+                            @endif
+
                             @if ($errors->has('membership'))
                                 <div class="form-control-feedback">{{ $errors->first('membership') }}</div>
                             @endif
@@ -270,6 +339,13 @@
                             <label for="internationalization_programs">Internationalization Programs</label>
                             <input class="form-control number text-right" name="internationalization_programs"
                                    value="{{old('internationalization_programs')}}" required>
+
+                            @if($latest != null)
+                                <small class="form-text text-muted">Budget for
+                                    A.Y. {{$latest->academic_year}}-{{ $latest->academic_year + 1 }}:
+                                    P{{number_format($latest->internationalization_programs)}}</small>
+                            @endif
+
                             @if ($errors->has('internationalization_programs'))
                                 <div class="form-control-feedback">{{ $errors->first('internationalization_programs') }}</div>
                             @endif
@@ -280,6 +356,13 @@
                             <label for="support_for_outbound_students">Support for Outbound Students</label>
                             <input class="form-control number text-right" name="support_for_outbound_students"
                                    value="{{old('support_for_outbound_students')}}" required>
+
+                            @if($latest != null)
+                                <small class="form-text text-muted">Budget for
+                                    A.Y. {{$latest->academic_year}}-{{ $latest->academic_year + 1 }}:
+                                    P{{number_format($latest->support_for_outbound_students)}}</small>
+                            @endif
+
                             @if ($errors->has('support_for_outbound_students'))
                                 <div class="form-control-feedback">{{ $errors->first('support_for_outbound_students') }}</div>
                             @endif
@@ -290,6 +373,13 @@
                             <label for="international_events">International Events</label>
                             <input class="form-control number text-right" name="international_events"
                                    value="{{old('international_events')}}" required>
+
+                            @if($latest != null)
+                                <small class="form-text text-muted">Budget for
+                                    A.Y. {{$latest->academic_year}}-{{ $latest->academic_year + 1 }}:
+                                    P{{number_format($latest->international_events)}}</small>
+                            @endif
+
                             @if ($errors->has('international_events'))
                                 <div class="form-control-feedback">{{ $errors->first('international_events') }}</div>
                             @endif
@@ -300,6 +390,13 @@
                             <label for="orientation_programs">Orientation Programs</label>
                             <input class="form-control number text-right" name="orientation_programs"
                                    value="{{old('orientation_programs')}}" required>
+
+                            @if($latest != null)
+                                <small class="form-text text-muted">Budget for
+                                    A.Y. {{$latest->academic_year}}-{{ $latest->academic_year + 1 }}:
+                                    P{{number_format($latest->orientation_programs)}}</small>
+                            @endif
+
                             @if ($errors->has('orientation_programs'))
                                 <div class="form-control-feedback">{{ $errors->first('orientation_programs') }}</div>
                             @endif
@@ -310,6 +407,13 @@
                             <label for="commitments_student">Commitments Students</label>
                             <input class="form-control number text-right" name="commitments_student"
                                    value="{{old('commitments_student')}}" required>
+
+                            @if($latest != null)
+                                <small class="form-text text-muted">Budget for
+                                    A.Y. {{$latest->academic_year}}-{{ $latest->academic_year + 1 }}:
+                                    P{{number_format($latest->commitments_student)}}</small>
+                            @endif
+
                             @if ($errors->has('commitments_student'))
                                 <div class="form-control-feedback">{{ $errors->first('commitments_student') }}</div>
                             @endif
@@ -320,6 +424,13 @@
                             <label for="activities">Activities/Projects - ABB</label>
                             <input class="form-control number text-right" name="activities"
                                    value="{{old('activities')}}" required>
+
+                            @if($latest != null)
+                                <small class="form-text text-muted">Budget for
+                                    A.Y. {{$latest->academic_year}}-{{ $latest->academic_year + 1 }}:
+                                    P{{number_format($latest->activities)}}</small>
+                            @endif
+
                             @if ($errors->has('activities'))
                                 <div class="form-control-feedback">{{ $errors->first('activities') }}</div>
                             @endif
@@ -330,6 +441,13 @@
                             <label for="capex">CAPEX</label>
                             <input class="form-control number text-right" name="capex"
                                    value="{{old('capex')}}" required>
+
+                            @if($latest != null)
+                                <small class="form-text text-muted">Budget for
+                                    A.Y. {{$latest->academic_year}}-{{ $latest->academic_year + 1 }}:
+                                    P{{number_format($latest->capex)}}</small>
+                            @endif
+
                             @if ($errors->has('capex'))
                                 <div class="form-control-feedback">{{ $errors->first('capex') }}</div>
                             @endif

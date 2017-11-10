@@ -25,3 +25,7 @@ label, h2, h4{
 #ay{
     margin-left: 25px;
 }
+
+small{
+    padding-left: 10px;
+}
