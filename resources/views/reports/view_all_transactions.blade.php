@@ -25,15 +25,19 @@
                 });
             });*/
         </script>
-        <script src="{{asset('js/canvasjs.min.js')}}"></script>
 
-        <link rel="stylesheet" type="text/css" href="{{asset('DataTables/datatables.min.css')}}"/>
-        <script type="text/javascript" src="{{asset('DataTables/datatables.min.js')}}"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.16/b-1.4.2/kt-2.3.2/datatables.min.css"/>
+
+        <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.16/b-1.4.2/kt-2.3.2/datatables.min.js"></script>
+
+        {{--<link rel="stylesheet" type="text/css" href="{{asset('DataTables/datatables.css')}}"/>
+        <script type="text/javascript" src="{{asset('DataTables/datatables.js')}}"></script>--}}
 
         <!-- Global CSS for Background Colours and fonts and stuff -->
         <link rel="stylesheet" href="{{asset('css/global.css')}}">
 
         <link rel="stylesheet" href="{{asset('css/view_all_transactions.css')}}">
+        <script type="text/javascript" src="{{asset('js/view_all_transactions.js')}}"></script>
         <!-- Follow the format of CSS and JS files so that the specifics can override the generals -->
     </head>
 
@@ -590,7 +594,10 @@
             <span class="col-md-2"></span>
             <div class="col-md-8" id="main-container">
                 <h2 class="float-left">Transactions</h2>
-                <div class="dropdown float-right">
+
+                <button class="btn btn-primary float-right">Filter</button>
+
+                <div class="dropdown float-right" style="margin-right: 15px">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dd-menu-button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         All
@@ -606,6 +613,8 @@
                             Commitments - Official</a>
                         <a class="dropdown-item category" name="commitments_student">
                             Commitments - Students</a>
+                        <a class="dropdown-item category" name="international_events">
+                            International Events</a>
                         <a class="dropdown-item category" name="membership">
                             International and Local Membership and Hostings</a>
                         <a class="dropdown-item category" name="tokens">
@@ -630,6 +639,8 @@
                             Representation</a>
                         <a class="dropdown-item category" name="supplies">
                             Supplies</a>
+                        <a class="dropdown-item category" name="support_for_outbound_students">
+                            Support for Outbound Students</a>
                         <a class="dropdown-item category" name="telephone">
                             Telephone</a>
                         <a class="dropdown-item category" name="transportation">
@@ -639,7 +650,21 @@
                     </div>
                 </div>
 
-                <table class="table">
+                <div class="dropdown float-right" style="margin-right: 15px">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dd-menu-button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Academic Year
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-right" aria-label="gay" id="dropdowncategory">
+                        @foreach($academic_years as $year)
+                            <a class="dropdown-item year" name="{{$year->academic_year}}">
+                                A.Y. {{$year->academic_year}} - {{$year->academic_year + 1 }}
+                            </a>
+                        @endforeach
+                    </div>
+                </div>
+
+                <table class="table table-striped table-bordered" id="#transactions_table">
                     <thead class="thead-default">
                     <tr>
                         <th>Date</th>
@@ -647,14 +672,23 @@
                         <th>Owner</th>
                         <th>Description</th>
                         <th>Amount</th>
-                        <th>Running Balance</th>
                     </tr>
                     </thead>
+                    <tbody id="transactions_body">
+                        @foreach($all as $trans)
+                            <tr>
+                                <td>{{ $trans->transaction_date}}</td>
+                                <td>{{ $trans->item_name }}</td>
+                                <td>{{ $trans->owner }}</td>
+                                <td>{{ $trans->description }}</td>
+                                <td class="text-right">P{{ number_format($trans->amount, 2) }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
                 </table>
 
             </div>
             <span class="col-md-2"></span>
         </div>
-
     </body>
 </html>

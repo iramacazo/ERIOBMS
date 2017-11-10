@@ -130,6 +130,16 @@ class HomeController extends Controller
                    'term2' => 0,
                    'term3' => 0
                ]) ,
+               'international_events' => collect([
+                   'term1' => 0,
+                   'term2' => 0,
+                   'term3' => 0
+               ]) ,
+               'support_for_outbound_students' => collect([
+                   'term1' => 0,
+                   'term2' => 0,
+                   'term3' => 0
+               ]) ,
             ]);
             $budgetdata = ProposedBudget::all()->first();
             $term1 = Transaction::all()->where('term',1)
@@ -190,6 +200,10 @@ class HomeController extends Controller
                     $categorybudget['activities']['term1'] += $category->amount;
                 elseif ($category->category == 'capex')
                     $categorybudget['capex']['term1'] += $category->amount;
+                elseif ($category->category == 'international_events')
+                    $categorybudget['international_events']['term1'] += $category->amount;
+                elseif ($category->category == 'support_for_outbound_students')
+                    $categorybudget['support_for_outbound_students']['term1'] += $category->amount;
             }
 
             foreach($term2 as $category){
@@ -233,6 +247,10 @@ class HomeController extends Controller
                     $categorybudget['activities']['term2'] += $category->amount;
                 elseif ($category->category == 'capex')
                     $categorybudget['capex']['term2'] += $category->amount;
+                elseif ($category->category == 'support_for_outbound_students')
+                    $categorybudget['support_for_outbound_students']['term2'] += $category->amount;
+                elseif ($category->category == 'international_events')
+                    $categorybudget['international_events']['term2'] += $category->amount;
             }
             foreach($term3 as $category){
                 if($category->category == 'supplies')
@@ -275,6 +293,10 @@ class HomeController extends Controller
                     $categorybudget['activities']['term3'] += $category->amount;
                 elseif ($category->category == 'capex')
                     $categorybudget['capex']['term3'] += $category->amount;
+                elseif ($category->category == 'support_for_outbound_students')
+                    $categorybudget['support_for_outbound_students']['term3'] += $category->amount;
+                elseif ($category->category == 'international_events')
+                    $categorybudget['international_events']['term3'] += $category->amount;
             }
 
             $latest = ProposedBudget::all()->sortByDesc('created_at')->first();

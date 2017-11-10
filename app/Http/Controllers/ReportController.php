@@ -194,94 +194,79 @@ class ReportController extends Controller
     }
 
     //todo finish this
-    public function viewAllTransactions(){ //all transactions from the beginning of time grouped by category
-        $academic_year = ProposedBudget::all()
+    public function viewAllTransactions(){
+        //all transactions from the beginning of time grouped by category
+        $academic_years = ProposedBudget::all()
                         ->where('approval_status', true)
-                        ->sortByDesc('created_at')
-                        ->first()
-                        ->academic_year;
+                        ->sortByDesc('created_at');
 
-        $all = Transaction::all()->where('academic_year', '=', $academic_year)
-                            ->sortByDesc('created_at');
+        $all = Transaction::all()->sortByDesc('created_at');
+
+        $mailing = Transaction::all()->where('category', '=','mailing')
+            ->sortByDesc('transaction_date');
+
+        $meetings = Transaction::all()->where('category', '=','meetings')
+            ->sortByDesc('transaction_date');
+
+        $mimeo = Transaction::all()->where('category', '=','mimeo')
+            ->sortByDesc('transaction_date');
+
+        $repairs = Transaction::all()->where('category', '=','repairs')
+            ->sortByDesc('transaction_date');
 
         $supplies = Transaction::all()->where('category', '=','supplies')
             ->sortByDesc('transaction_date');
 
-        $transportation = Transaction::where('category', 'transportation')
-            ->orderBy('transaction_date', 'DESC')
-            ->get();
+        $telephone = Transaction::all()->where('category', '=','telephone')
+            ->sortByDesc('transaction_date');
 
-        $mailing = Transaction::where('category', 'mailing')
-            ->orderBy('transaction_date', 'DESC')
-            ->get();
+        $transportation = Transaction::all()->where('category', '=','transportation')
+            ->sortByDesc('transaction_date');
 
-        $meetings = Transaction::where('category', 'meeting_expenses')
-            ->orderBy('transaction_date', 'DESC')
-            ->get();
+        $workshop = Transaction::all()->where('category', '=','workshop')
+            ->sortByDesc('transaction_date');
 
-        $workshop = Transaction::where('category', 'workshop')
-            ->orderBy('transaction_date', 'DESC')
-            ->get();
+        $publication = Transaction::all()->where('category', '=','publication')
+            ->sortByDesc('transaction_date');
 
-        $mimeo = Transaction::where('category', 'mimeo')
-            ->orderBy('transaction_date', 'DESC')
-            ->get();
+        $uniform = Transaction::all()->where('category', '=','uniform')
+            ->sortByDesc('transaction_date');
 
-        $telephone = Transaction::where('category', 'telephone')
-            ->orderBy('transaction_date', 'DESC')
-            ->get();
+        $travel = Transaction::all()->where('category', '=','travel')
+            ->sortByDesc('transaction_date');
 
-        $repairs = Transaction::where('category', 'repairs_and_maintenance')
-            ->orderBy('transaction_date', 'DESC')
-            ->get();
+        $representation = Transaction::all()->where('category', '=','representation')
+            ->sortByDesc('transaction_date');
 
-        $publication = Transaction::where('category', 'publication')
-            ->orderBy('transaction_date', 'DESC')
-            ->get();
+        $tokens = Transaction::all()->where('category', '=','tokens')
+            ->sortByDesc('transaction_date');
 
-        $uniform = Transaction::where('category', 'uniform')
-            ->orderBy('transaction_date', 'DESC')
-            ->get();
+        $offcommitments = Transaction::all()->where('category', '=','commitments_official')
+            ->sortByDesc('transaction_date');
 
-        $travel = Transaction::where('category', 'international_travel')
-            ->orderBy('transaction_date', 'DESC')
-            ->get();
+        $studentcommitments = Transaction::all()->where('category', '=','commitments_student')
+            ->sortByDesc('transaction_date');
 
-        $representation = Transaction::where('category', 'representation')
-            ->orderBy('transaction_date', 'DESC')
-            ->get();
+        $membership = Transaction::all()->where('category', '=','membership')
+            ->sortByDesc('transaction_date');
 
-        $tokens = Transaction::where('category', 'tokens')
-            ->orderBy('transaction_date', 'DESC')
-            ->get();
+        $internprograms = Transaction::all()->where('category', '=','internationalization_programs')
+            ->sortByDesc('transaction_date');
 
-        $offcommitments = Transaction::where('category', 'commitments_official')
-            ->orderBy('transaction_date', 'DESC')
-            ->get();
+        $activities = Transaction::all()->where('category', '=','activities')
+            ->sortByDesc('transaction_date');
 
-        $studentcommitments = Transaction::where('category', 'commitments_student')
-            ->orderBy('transaction_date', 'DESC')
-            ->get();
+        $capex = Transaction::all()->where('category', '=','capex')
+            ->sortByDesc('transaction_date');
 
-        $membership = Transaction::where('category', 'membership')
-            ->orderBy('transaction_date', 'DESC')
-            ->get();
+        $orientprograms = Transaction::all()->where('category', '=','orientation_programs')
+            ->sortByDesc('transaction_date');
 
-        $internprograms = Transaction::where('category', 'internationalization_programs')
-            ->orderBy('transaction_date', 'DESC')
-            ->get();
+        $international = Transaction::all()->where('category', '=','international_events')
+            ->sortByDesc('transaction_date');
 
-        $activities = Transaction::where('category', 'activities')
-            ->orderBy('transaction_date', 'DESC')
-            ->get();
-
-        $capex = Transaction::where('category', 'capex')
-            ->orderBy('transaction_date', 'DESC')
-            ->get();
-
-        $orientprograms = Transaction::where('category', 'orientation_programs')
-            ->orderBy('transaction_date', 'DESC')
-            ->get();
+        $support = Transaction::all()->where('category', '=','support_for_outbound_students')
+            ->sortByDesc('transaction_date');
 
         return view("reports/view_all_transactions", ['all' => $all,
             'supplies' => $supplies, 'transportation' => $transportation,
@@ -293,7 +278,8 @@ class ReportController extends Controller
             'tokens' => $tokens, 'commitments_official' => $offcommitments,
             'commitments_student' => $studentcommitments, 'membership' => $membership,
             'internationalization_programs' => $internprograms, 'activities' => $activities,
-            'capex' => $capex, 'orientation_programs' => $orientprograms
+            'capex' => $capex, 'orientation_programs' => $orientprograms,'support_for_outbound_students' => $support,
+            'international_events' => $international, 'academic_years' => $academic_years
         ]);
     }
 
