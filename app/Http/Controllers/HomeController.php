@@ -26,7 +26,7 @@ class HomeController extends Controller
     public function index()
     {
         if(ProposedBudget::all()->count() == 0)
-            return view('home', ['budgetdata' => null]);
+            return view('home', ['budgetdata' => null, 'all' => collect([])]);
         else{
             $term1amount = 0; $term2amount = 0; $term3amount = 0;
             $categorybudget = collect([
