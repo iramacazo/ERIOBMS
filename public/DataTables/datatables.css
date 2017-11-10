@@ -4,10 +4,10 @@
  *
  * To rebuild or modify this file with the latest versions of the included
  * software please visit:
- *   https://datatables.net/download/#bs4/dt-1.10.16/b-1.4.2/b-print-1.4.2/r-2.2.0
+ *   https://datatables.net/download/#bs4/dt-1.10.16/b-1.4.2/kt-2.3.2/r-2.2.0
  *
  * Included libraries:
- *   DataTables 1.10.16, Buttons 1.4.2, Print view 1.4.2, Responsive 2.2.0
+ *   DataTables 1.10.16, Buttons 1.4.2, KeyTable 2.3.2, Responsive 2.2.0
  */
 
 table.dataTable {
@@ -432,6 +432,13 @@ div.dt-buttons a.btn.processing:after {
   -ms-animation: dtb-spinner 1500ms infinite linear;
   -webkit-animation: dtb-spinner 1500ms infinite linear;
   -moz-animation: dtb-spinner 1500ms infinite linear;
+}
+
+
+table.dataTable th.focus,
+table.dataTable td.focus {
+  outline: 3px solid #0275d8;
+  outline-offset: -1px;
 }
 
 

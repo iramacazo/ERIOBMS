@@ -67,3 +67,15 @@
      min-height: 100px;
      padding: 25px;
  }
+
+ .page-item.active .page-link{
+     background-color: #00703C;
+     border-color: #00532b;
+ }
+
+table.dataTable{
+    border-collapse: collapse !important;
+    padding: 0;
+    border-radius: 5px;
+    width: 100%;
+}

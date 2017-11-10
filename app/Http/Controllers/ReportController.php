@@ -198,9 +198,12 @@ class ReportController extends Controller
         //all transactions from the beginning of time grouped by category
         $academic_years = ProposedBudget::all()
                         ->where('approval_status', true)
-                        ->sortByDesc('created_at');
+                        ->sortByDesc('created_at')
+                        ->first();
 
-        $all = Transaction::all()->sortByDesc('created_at');
+        $all = Transaction::all()
+            ->where('budget_id', 'is', $academic_years->id)
+            ->sortByDesc('created_at');
 
         $mailing = Transaction::all()->where('category', '=','mailing')
             ->sortByDesc('transaction_date');
