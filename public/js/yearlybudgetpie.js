@@ -23,6 +23,8 @@ window.onload = function() {
     totalbudget += parseFloat(budgetdata['capex']);
     totalbudget += parseFloat(budgetdata['orientation_programs']);
     totalbudget += parseFloat(budgetdata['commitments_student']);
+    totalbudget += parseFloat(budgetdata['support_for_outbound_students']);
+    totalbudget += parseFloat(budgetdata['international_events']);
     // Formats the numbers
     $("#totalbudget").text("Total Budget: P" + totalbudget.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"));
     console.log();

@@ -1,52 +1,58 @@
+h1{
+    color: #ffffff;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 
-    h1{
-        color: #ffffff;
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    }
+body{
+    background: #ebebeb;
+}
 
-    body{
-        background: #ebebeb;
-    }
+#main-body{
+    margin-left: auto;
+    margin-right: auto;
+    padding: 50px;
+}
 
-    #main-body{
-        margin-left: auto;
-        margin-right: auto;
-        padding: 50px;
-    }
-
-    .navbar{
-        height: 85px;
-        background: white;
-        padding-left: 20px;
-        border-bottom: 2px solid #919792;
-        box-shadow:0 1px 10px rgba(102, 114, 115, 0.53);
-        -moz-box-shadow:0 1px 10px rgba(102, 114, 115, 0.53);
-        -webkit-box-shadow:0 1px 10px rgba(102, 114, 115, 0.53);
-    }
+.navbar{
+    height: 85px;
+    background: white;
+    padding-left: 20px;
+    border-bottom: 2px solid #919792;
+    box-shadow:0 1px 10px rgba(102, 114, 115, 0.53);
+    -moz-box-shadow:0 1px 10px rgba(102, 114, 115, 0.53);
+    -webkit-box-shadow:0 1px 10px rgba(102, 114, 115, 0.53);
+}
 
 
-    .nav-icon{
-        height: 60px;
-        user-drag: none;
-        user-select: none;
-        -ms-user-select: none;
-        -moz-user-select: none;
-        -webkit-user-drag: none;
-        -webkit-user-select: none;
-    }
+.nav-icon{
+    height: 60px;
+    user-drag: none;
+    user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+}
 
-    .btn-primary{
-        background-color: #00703C;
-        border: #003319;
-    }
+.btn-primary{
+    background-color: #00703C;
+    border: #003319;
+}
 
-    .btn-primary:hover{
-        background-color: #007c42;
-        border: #00703C;
-    }
+.btn-primary:hover{
+    background-color: #007c42;
+    border: #00703C;
+}
 
-    .btn-primary.disabled{
-        background-color: #007d3e;
-        border: #00692f;
-    }
+.btn-primary.disabled{
+    background-color: #007d3e;
+    border: #00692f;
+}
 
+.dropdown-item {
+    cursor: pointer;
+}
+
+.dropdown-item:active {
+    background-color: #d4d4d4;
+}

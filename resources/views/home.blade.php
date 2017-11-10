@@ -26,7 +26,6 @@
             var termdata = @json($amounts);
             var categorybudget = @json($categorybudget);
         </script>
-
     @endif
     <script src="{{asset('js/yearlybudgetpie.js')}}"></script>{{--
     <script src="{{asset('js/specificbudget.js')}}"></script>--}}
@@ -165,6 +164,8 @@
                                             Commitments - Official</a>
                                         <a class="dropdown-item category" name="commitments_student">
                                             Commitments - Students</a>
+                                        <a class="dropdown-item category" name="international_events">
+                                            International Events</a>
                                         <a class="dropdown-item category" name="membership">
                                             International and Local Membership and Hostings</a>
                                         <a class="dropdown-item category" name="tokens">
@@ -189,6 +190,8 @@
                                             Representation</a>
                                         <a class="dropdown-item category" name="supplies">
                                             Supplies</a>
+                                        <a class="dropdown-item category" name="support_for_outbound_students">
+                                            Support for Outbound Students</a>
                                         <a class="dropdown-item category" name="telephone">
                                             Telephone</a>
                                         <a class="dropdown-item category" name="transportation">
