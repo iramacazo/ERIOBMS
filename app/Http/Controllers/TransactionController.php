@@ -46,7 +46,9 @@ class TransactionController extends Controller
             $transaction->paid_in_petty_cash = true;
         else
             $transaction->paid_in_petty_cash = false;
-        $transaction->budget_id = ProposedBudget::all()->first()->id; //fix
+        $transaction->budget_id = ProposedBudget::all()->where('approval_status', 'is', true)
+            ->sortByDesc('created_at')
+            ->first()->id; //fix
         $transaction->save();
 
         echo ("Transaction added.");

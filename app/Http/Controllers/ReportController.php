@@ -205,7 +205,7 @@ class ReportController extends Controller
             ->where('budget_id', 'is', $academic_years->id)
             ->sortByDesc('created_at');
 
-        $mailing = $all->where('category', '=','mailing')
+        /*$mailing = $all->where('category', '=','mailing')
             ->sortByDesc('transaction_date');
 
         $meetings = $all->where('category', '=','meetings')
@@ -269,10 +269,10 @@ class ReportController extends Controller
             ->sortByDesc('transaction_date');
 
         $support = $all->where('category', '=','support_for_outbound_students')
-            ->sortByDesc('transaction_date');
+            ->sortByDesc('transaction_date');*/
 
         return view("reports/view_all_transactions", ['all' => $all,
-            'supplies' => $supplies, 'transportation' => $transportation,
+            /*'supplies' => $supplies, 'transportation' => $transportation,
             'mailing' => $mailing, 'meeting_expenses' => $meetings,
             'workshop' => $workshop, 'mimeo' => $mimeo,
             'telephone' => $telephone, 'repairs_and_maintenance' => $repairs,
@@ -282,7 +282,7 @@ class ReportController extends Controller
             'commitments_student' => $studentcommitments, 'membership' => $membership,
             'internationalization_programs' => $internprograms, 'activities' => $activities,
             'capex' => $capex, 'orientation_programs' => $orientprograms,'support_for_outbound_students' => $support,
-            'international_events' => $international, 'academic_years' => $academic_years
+            'international_events' => $international, 'academic_years' => $academic_years*/
         ]);
     }
 

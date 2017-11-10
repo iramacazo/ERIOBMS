@@ -68,8 +68,10 @@
             <h1>Add Transaction</h1>
             <form class="form" action="{{ route('submitTransaction') }}" method="POST" id="transaction_form">
                 <h3>Owner: {{ \Illuminate\Support\Facades\Auth::user()->username }}</h3>
-                <small>A.Y. {{\App\ProposedBudget::all()->first()->academic_year}} - {{\App\ProposedBudget::all()->first()
-                                                        ->academic_year + 1}}</small>
+                <small>A.Y. {{\App\ProposedBudget::all()->where('approval_status', true)
+                                ->sortByDesc('created_at')->first()->academic_year}} -
+                            {{\App\ProposedBudget::all()->where('approval_status', true)
+                                ->sortByDesc('created_at')->first()->academic_year + 1}}</small>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group{{$errors->has('term') ? 'has-danger':''}}">

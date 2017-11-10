@@ -35,6 +35,10 @@
         <link rel="stylesheet" href="{{asset('css/view_all_transactions.css')}}">
         <script type="text/javascript" src="{{asset('js/view_all_transactions.js')}}"></script>
         <!-- Follow the format of CSS and JS files so that the specifics can override the generals -->
+
+        <script>
+            var transactions = @json($all);
+        </script>
     </head>
 
     <body>
@@ -592,14 +596,14 @@
                 <div class="d-flex flex-row justify-content-between">
                     <h2>Transactions</h2>
                     <div class="d-flex flex-row-reverse align-items-center align-content-center">
-                        <button class="btn btn-primary">Filter</button>
-
                         <div class="dropdown" style="margin-right: 15px">
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dd-menu-button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 All
                             </button>
                             <div class="dropdown-menu dropdown-menu-right" aria-label="gay" id="dropdowncategory">
+                                <a class="dropdown-item category" name="all">
+                                    All</a>
                                 <a class="dropdown-item category" name="activities">
                                     Activities/Projects - ABB </a>
                                 <a class="dropdown-item category" name="workshop">
@@ -656,8 +660,9 @@
                         <thead class="thead-default">
                         <tr>
                             <th>Date</th>
-                            <th>Item</th>
+                            <th>Term</th>
                             <th>Owner</th>
+                            <th>Item</th>
                             <th>Description</th>
                             <th>Amount</th>
                         </tr>
@@ -666,8 +671,9 @@
                         @foreach($all as $trans)
                             <tr>
                                 <td>{{ $trans->transaction_date}}</td>
-                                <td>{{ $trans->item_name }}</td>
+                                <td>Term {{$trans->term}}</td>
                                 <td>{{ $trans->owner }}</td>
+                                <td>{{ $trans->item_name }}</td>
                                 <td>{{ $trans->description }}</td>
                                 <td class="text-right">P{{ number_format($trans->amount, 2) }}</td>
                             </tr>
