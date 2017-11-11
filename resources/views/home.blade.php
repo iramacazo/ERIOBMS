@@ -207,10 +207,17 @@
                             </div>
                         </div>
 
-                        <div class="col-md-12 text-center" id = "view-block">
-                            <a href="{{ route('budget_variance') }}"> Generate Budget Variance Report </a><br>
-                             <!-- todo itsura/naming --> <br>
-                            <a href="{{route('input.transaction.range')}}">View Transactions Date Range</a>
+                        <div class="row"  id = "view-block">
+                            <span class="col-md-3"></span>
+                            <div class="col-md-6 text-center">
+                                <a href="{{ route('budget_variance') }}" role="button"
+                                   class="btn btn-primary"> Generate Budget Variance Report </a><br>
+                                <!-- todo itsura/naming --> <br>
+                                <a href="{{route('input.transaction.range')}}" role="button"
+                                   class="btn btn-primary">View Transactions Date Range</a>
+                            </div>
+
+                            <span class="col-md-3"></span>
                         </div>
                     </div>
                 </div>

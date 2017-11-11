@@ -1,0 +1,36 @@
+@media print{
+    @page{
+        size: 8.5in 11in;
+        margin: 1in;
+    }
+
+    body * {
+        visibility: hidden;
+    }
+    #table-block, #table-block * {
+        visibility: visible;
+    }
+    #table-block{
+        position: absolute;
+        left: 0;
+        top: 0;
+        margin-top: 0;
+        padding: 0;
+    }
+    #print{
+        display: none;
+    }
+
+    .thead-default{
+        border: #e3e3e3 2px solid !important;
+    }
+
+    .subtotal{
+        border: #e3e3e3 1px solid !important;
+        background-color: #ECEEEF !important;
+    }
+
+    .table-bordered thead th {
+        border-width: 0 !important;
+    }
+}

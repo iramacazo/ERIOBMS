@@ -16,7 +16,6 @@
 		<!-- Global CSS for Background Colours and fonts and stuff -->
 		<link rel="stylesheet" href="{{asset('css/global.css')}}">
 
-		<link rel="stylesheet" href="{{asset('css/home.css')}}">
 		<!-- Follow the format of CSS and JS files so that the specifics can override the generals -->
 	</head>
 
@@ -53,27 +52,37 @@
 			</div>
 		</nav>
 
-		<div class="container" id="main-body">
-			<div class="col-md-12 text-center">
+		<div class="row" id="main-body">
+			<span class="col-md-4"></span>
+			<div class="col-md-4 text-center" style="background: white; border-radius: 5px; padding: 20px;">
 				<!-- Note: Pwede to gawing modal (tempo view).. pangenter lang ng term -->
-				<p>Choose an academic year and a term to generate a variance report</p>
-				<form action="{{ route('budget_variance_result') }}" method="POST">
-					@if($acad != null)
-						<select name="academic_year">
-							@foreach($acad as $a)
-							<option value="{{ $a->academic_year }}">{{ $a->academic_year }} - {{ $a->academic_year + 1}}</option>
-							@endforeach
-						</select>
-					@endif
-					<select name="term">
-						<option value="1">1st Term</option>
-						<option value="2">2nd Term</option>
-						<option value="3">3rd Term</option>
-					</select>
-					{{ csrf_field() }}
-					<input type="submit" name="Submit" value="Submit">
+				<h3>Choose an academic year and a term to generate a variance report</h3>
+				<br>
+				<form class="form" action="{{ route('budget_variance_result') }}" method="POST"
+					style="padding: 0 150px 10px 150px">
+					<div class="form-group-row">
+						@if($acad != null)
+							<label>Academic Year</label>
+							<select class="form-control" name="academic_year">
+								@foreach($acad as $a)
+									<option value="{{ $a->academic_year }}">{{ $a->academic_year }} - {{ $a->academic_year + 1}}</option>
+								@endforeach
+							</select>
+						@endif
+						<br>
+							<label>Term</label>
+							<select class="form-control" name="term">
+								<option value="1">1st Term</option>
+								<option value="2">2nd Term</option>
+								<option value="3">3rd Term</option>
+							</select>
+						{{ csrf_field() }}
+
+					</div>
+					<button class="btn btn-primary" type="submit" style="margin-top: 15px">Submit</button>
 				</form>
 			</div>
+			<span class="col-md-4"></span>
 		</div>
 
 	</body>

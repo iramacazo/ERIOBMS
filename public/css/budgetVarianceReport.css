@@ -1,33 +1,56 @@
 
-    #main-body {
-    //    background-color: #1d1e1f;
-    }
+#main-body {
+//    background-color: #1d1e1f;
+}
 
-    td {
-        text-align: right;
-    }
+h2{
+    color: #1d1e1f;
+}
 
-    #budget-variance-report-column-header {
-        text-align: center;
-    }
+td {
+    text-align: right;
+}
 
-    #budget-variance-report-row-header {
-        text-align: left;
-    }
+#table-block{
+    background-color: white;
+    padding: 50px;
+    border-radius: 5px;
+}
 
-    table {
-        margin-left: auto;
-        margin-right: auto;
-        border-spacing: 5px;
-        border-collapse: separate;
-    //    background-color: #1d1e1f;
-    }
+#budget-variance-report-column-header {
+    text-align: center;
+}
 
-    th, td {
-        padding-top: 3px;
-        padding-left: 10px;
-        padding-right: 5px;
-        border-radius: 2px;
-        padding-bottom: 3px;
-        background-color: whitesmoke;
-    }
+#budget-variance-report-row-header {
+    text-align: left;
+}
+
+.thead-default{
+    border: #e3e3e3 2px solid;
+}
+
+.subtotal{
+    border: #e3e3e3 1px solid;
+    background-color: #ECEEEF;
+}
+
+.table-bordered thead th {
+    border-width: 0;
+}
+
+/*table {
+    margin-left: auto;
+    margin-right: auto;
+    border-spacing: 5px;
+    border-collapse: separate;
+//    background-color: #1d1e1f;
+}
+
+th, td {
+    padding-top: 3px;
+    padding-left: 10px;
+    padding-right: 5px;
+    border-radius: 2px;
+    padding-bottom: 3px;
+    background-color: whitesmoke;
+}*/

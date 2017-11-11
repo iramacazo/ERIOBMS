@@ -37,6 +37,7 @@ body{
 .btn-primary{
     background-color: #00703C;
     border: #003319;
+    cursor: pointer;
 }
 
 .btn-primary:hover{

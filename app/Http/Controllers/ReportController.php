@@ -24,8 +24,9 @@ class ReportController extends Controller
     		'term' => 'required'
     	]);
 
-    	$budget = ProposedBudget::where('academic_year', $request->academic_year)->first();
-
+    	$budget = ProposedBudget::all()->where('academic_year', $request->academic_year)->first();
+        $academic_year = $request->academic_year;
+        $term = $request->term;
     	$transactions = Transaction::where('term', $request->term)->where('budget_id', $budget->id)->get();
 
     	$supplies = 0;
@@ -190,7 +191,7 @@ class ReportController extends Controller
             ])
     	]);
 
-    	return view('budgetVarianceReport', ['data' => $data]);
+    	return view('budgetVarianceReport', ['data' => $data, 'academic_year' =>$academic_year, 'term' => $term]);
     }
 
     //todo finish this
@@ -205,85 +206,7 @@ class ReportController extends Controller
             ->where('budget_id', 'is', $academic_years->id)
             ->sortByDesc('created_at');
 
-        /*$mailing = $all->where('category', '=','mailing')
-            ->sortByDesc('transaction_date');
-
-        $meetings = $all->where('category', '=','meetings')
-            ->sortByDesc('transaction_date');
-
-        $mimeo = $all->where('category', '=','mimeo')
-            ->sortByDesc('transaction_date');
-
-        $repairs = $all->where('category', '=','repairs')
-            ->sortByDesc('transaction_date');
-
-        $supplies = $all->where('category', '=','supplies')
-            ->sortByDesc('transaction_date');
-
-        $telephone = $all->where('category', '=','telephone')
-            ->sortByDesc('transaction_date');
-
-        $transportation = $all->where('category', '=','transportation')
-            ->sortByDesc('transaction_date');
-
-        $workshop = $all->where('category', '=','workshop')
-            ->sortByDesc('transaction_date');
-
-        $publication = $all->where('category', '=','publication')
-            ->sortByDesc('transaction_date');
-
-        $uniform = $all->where('category', '=','uniform')
-            ->sortByDesc('transaction_date');
-
-        $travel = $all->where('category', '=','travel')
-            ->sortByDesc('transaction_date');
-
-        $representation = $all->where('category', '=','representation')
-            ->sortByDesc('transaction_date');
-
-        $tokens = $all->where('category', '=','tokens')
-            ->sortByDesc('transaction_date');
-
-        $offcommitments = $all->where('category', '=','commitments_official')
-            ->sortByDesc('transaction_date');
-
-        $studentcommitments = $all->where('category', '=','commitments_student')
-            ->sortByDesc('transaction_date');
-
-        $membership = $all->where('category', '=','membership')
-            ->sortByDesc('transaction_date');
-
-        $internprograms = $all->where('category', '=','internationalization_programs')
-            ->sortByDesc('transaction_date');
-
-        $activities = $all->where('category', '=','activities')
-            ->sortByDesc('transaction_date');
-
-        $capex = $all->where('category', '=','capex')
-            ->sortByDesc('transaction_date');
-
-        $orientprograms = $all->where('category', '=','orientation_programs')
-            ->sortByDesc('transaction_date');
-
-        $international = $all->where('category', '=','international_events')
-            ->sortByDesc('transaction_date');
-
-        $support = $all->where('category', '=','support_for_outbound_students')
-            ->sortByDesc('transaction_date');*/
-
-        return view("reports/view_all_transactions", ['all' => $all,
-            /*'supplies' => $supplies, 'transportation' => $transportation,
-            'mailing' => $mailing, 'meeting_expenses' => $meetings,
-            'workshop' => $workshop, 'mimeo' => $mimeo,
-            'telephone' => $telephone, 'repairs_and_maintenance' => $repairs,
-            'publication' => $publication, 'uniform' => $uniform,
-            'international_travel' => $travel, 'representation' => $representation,
-            'tokens' => $tokens, 'commitments_official' => $offcommitments,
-            'commitments_student' => $studentcommitments, 'membership' => $membership,
-            'internationalization_programs' => $internprograms, 'activities' => $activities,
-            'capex' => $capex, 'orientation_programs' => $orientprograms,'support_for_outbound_students' => $support,
-            'international_events' => $international, 'academic_years' => $academic_years*/
-        ]);
+        return view("reports/view_all_transactions", ['all' => $all, 'budget' => $academic_years]);
     }
 
     public function viewTransactionsRange(Request $request){
