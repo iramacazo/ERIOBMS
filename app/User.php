@@ -22,7 +22,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'firstname', 'lastname', 'username', 'email', 'password',
+        'firstname', 'lastname', 'username', 'email', 'password', 'usertype'
     ];
 
     /**
@@ -40,5 +40,14 @@ class User extends Authenticatable
 
     public function transaction(){
         return $this->hasMany('App/Transaction', 'owner', 'username');
+    }
+
+    public function isAdmin(){
+        if ($this->usertype == 'admin') {
+            return true;
+        }else{
+            return false;
+        }
+            return false;
     }
 }
