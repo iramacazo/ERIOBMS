@@ -28,14 +28,14 @@
     <div class="flex-row">
         <div class="d-flex justify-content-around">
             <span></span>
-            <a class="home_link" href="#"><i>Budget Proposal</i></a>
-            <a class="home_link" href="#"><i>General Journal</i></a>
-            <a class="home_link" href="#"><i>Ledger</i></a>
-            <a class="home_link" href="#"><i>Balance Sheet</i></a>
+            <a class="home_link" href="#">Budget Proposal</a>
+            <a class="home_link" href="#">General Journal</a>
+            <a class="home_link" href="#">Ledger</a>
+            <a class="home_link" href="#">Balance Sheet</a>
             <span></span>
         </div>
     </div>
-
+    <img src="{{asset('images/airplane.png')}}" style="height: 25%; position: fixed; top: 15%; right: 5%;" >
 </body>
 <script>
     $(document).ready(function () {
