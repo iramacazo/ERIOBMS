@@ -1,0 +1,16 @@
+body{
+    background: white;
+    padding-top: 10%;
+}
+
+.home_link{
+    color: #00703C;
+    text-decoration: none;
+    font-size: 2em;
+    font-family: Myriad-pro, sans-serif;
+}
+
+.home_link:hover{
+    color: #004425;
+    text-decoration: none;
+}

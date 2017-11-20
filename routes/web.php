@@ -15,6 +15,10 @@ Route::get('/login', function () {
     return view('auth/login');
 })->name('login');
 
+Route::get('/test', function () {
+    return view('homepage');
+})->name('homepage');
+
 Route::get('/register', function () {
     return view('register');
 })->name('register');

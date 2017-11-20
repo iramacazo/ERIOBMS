@@ -1,3 +1,8 @@
+@font-face {
+    font-family: Myriad-pro;
+    src: url("/public/fonts/MyriadPro-Regular.otf");
+}
+
 h1{
     color: #ffffff;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
