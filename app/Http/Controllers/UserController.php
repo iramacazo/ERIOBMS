@@ -25,7 +25,7 @@ class UserController extends Controller
         ]);
 
     	$user = new User;
-    	$user->email = "bading@gmail.com";  //todo
+    	$user->email = "accounting@gmail.com";  //todo
     	$user->username = $request->username;
     	$user->password = $password;
     	$user->firstname = $request->firstname;
